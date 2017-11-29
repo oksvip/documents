@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Mysql - Centos软件安装</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mysql";
+    var mkdocs_page_input_path = "study/mysql.md";
+    var mkdocs_page_url = "/study/mysql/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Centos软件安装</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../javascript/">JavaScript</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Mysql</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#-">-- 登录数据库</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_1">-- 显示全部数据库</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_2">-- 创建数据库</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_3">-- 显示完整的创库语句</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-mysql">-- 显示MYSQL编码</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_4">-- 查看字符集</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_5">-- 设置字符集</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-collation">-- collation的主要作用是指定字符排序时使用哪种字符编码作为排序的依据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_6">-- 登录数据库时选择数据库</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_7">-- 使用数据库</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_8">-- 查看全部数据表</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_9">-- 创建数据表(单个字段)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_10">-- 创建数据表(多个字段)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_11">-- 得到创建数据表语句</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_12">-- 打印表结构</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-myisaminnodb">-- 打印存储引擎(主要使用的是两种引擎：MyISAM和InnoDB)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-mysqlinnodb">-- MySQL默认的引擎是InnoDB，如果需要使用其他的引擎，需要特别指定</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_13">-- 删除数据表</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_14">-- 删除数据库中全部数据表</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_15">-- 修改表名</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_16">-- 增加表字段</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_17">-- 将增加的表字段放在所有字段的最前面</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_18">-- 将增加的表字段放在任意字段后面</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_19">-- 删除字段</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_20">-- 修改字段的属性</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_21">-- 修改字段名和属性</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_22">-- 显示警告</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_23">-- 插入单条数据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_24">-- 插入多条数据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_25">-- 查询用户表中数据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_26">-- 查询和计算</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_27">-- 条件查询</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#-_28">-- 比较运算符 =  ,  &gt;  ,  &lt;   ,  &lt;&gt;  ,  &lt;=  ,  &gt;=</a></li>
+        
+            <li><a class="toctree-l4" href="#-andor">-- 逻辑运算符  AND、OR</a></li>
+        
+            <li><a class="toctree-l4" href="#-like-not-like">-- 字符串模糊查询 LIKE ‘%%’ NOT LIKE ‘%%’</a></li>
+        
+            <li><a class="toctree-l4" href="#-in-not-in">-- 按范围查询 IN、 NOT IN</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#-_29">-- 对查询出来的结果进行排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-group-bycount3044">-- GROUP BY搭配COUNT函数使用(譬如30个学生分别来自4个城市，按城市分组后，查询出来的记录数是4条)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-havinggroup-by">-- HAVING只能使用在group by之后，用来对分组的结果进行再筛选</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-havingwhere">-- having和where的区别</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-limit-offsetrows">-- LIMIT offset：从符合条件的所有记录的第几条开始取数据,rows：取多少条数据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_30">-- 修改数据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_31">-- 删除数据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_32">-- 清空表中全部数据</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_33">-- 数据类型</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-mysql_1">-- MYSQL函数</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_34">-- 将字段设置唯一</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_35">-- 将字段去除唯一</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_36">-- 设置主键</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_37">-- 删除主键</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_38">-- 复合主键</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_39">-- 建表时设置主键</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_40">-- 复合主键设置</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_41">-- 给字段设置自增长</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-insertupdateauto_increment">-- 获取前一条INSERT语句或者UPDATE语句执行后，对应记录中AUTO_INCREMENT字段的值</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_42">-- 字段设置默认值</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_43">-- 设置字段不为空</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-not-null-default">-- NOT NULL 和DEFAULT 关系</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_44">-- 连表查询</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#-left-join">-- LEFT JOIN</a></li>
+        
+            <li><a class="toctree-l4" href="#-right-join">-- RIGHT JOIN</a></li>
+        
+            <li><a class="toctree-l4" href="#-inner-join">-- INNER JOIN</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#-_45">-- 外键</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_46">-- 添加外键</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_47">-- 约束条件</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_48">-- 创建索引（如何快速的检索数据）</a></li>
+    
+
+    <li class="toctree-l3"><a href="#-_49">-- 组合索引</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vim/">Vim</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">软件</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../install/ubuntu/">Ubuntu</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/vim/">Vim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/vsftpd/">Vsftpd</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/httpd/">Apache</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/mysql/">Mysql</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/php/">Php</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/redis/">Redis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/memcached/">Memcached</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/mongodb/">Mongodb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/composer/">Composer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/mkdocs/">Mkdocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/node/">Node</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/all/">All</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">学习</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../laravel5-thinkphp5/">Laravel&ThinkPHP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../laravel-email/">Laravel发送email</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../project-readme-example/">ReadMe-Example</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Centos软件安装</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>笔记 &raquo;</li>
+        
+      
+    
+    <li>Mysql</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="#-">-- 登录数据库</a></li>
+<li><a href="#-_1">-- 显示全部数据库</a></li>
+<li><a href="#-_2">-- 创建数据库</a></li>
+<li><a href="#-_3">-- 显示完整的创库语句</a></li>
+<li><a href="#-mysql">-- 显示MYSQL编码</a></li>
+<li><a href="#-_4">-- 查看字符集</a></li>
+<li><a href="#-_5">-- 设置字符集</a></li>
+<li><a href="#-collation">-- collation的主要作用是指定字符排序时使用哪种字符编码作为排序的依据</a></li>
+<li><a href="#-_6">-- 登录数据库时选择数据库</a></li>
+<li><a href="#-_7">-- 使用数据库</a></li>
+<li><a href="#-_8">-- 查看全部数据表</a></li>
+<li><a href="#-_9">-- 创建数据表(单个字段)</a></li>
+<li><a href="#-_10">-- 创建数据表(多个字段)</a></li>
+<li><a href="#-_11">-- 得到创建数据表语句</a></li>
+<li><a href="#-_12">-- 打印表结构</a></li>
+<li><a href="#-myisaminnodb">-- 打印存储引擎(主要使用的是两种引擎：MyISAM和InnoDB)</a></li>
+<li><a href="#-mysqlinnodb">-- MySQL默认的引擎是InnoDB，如果需要使用其他的引擎，需要特别指定</a></li>
+<li><a href="#-_13">-- 删除数据表</a></li>
+<li><a href="#-_14">-- 删除数据库中全部数据表</a></li>
+<li><a href="#-_15">-- 修改表名</a></li>
+<li><a href="#-_16">-- 增加表字段</a></li>
+<li><a href="#-_17">-- 将增加的表字段放在所有字段的最前面</a></li>
+<li><a href="#-_18">-- 将增加的表字段放在任意字段后面</a></li>
+<li><a href="#-_19">-- 删除字段</a></li>
+<li><a href="#-_20">-- 修改字段的属性</a></li>
+<li><a href="#-_21">-- 修改字段名和属性</a></li>
+<li><a href="#-_22">-- 显示警告</a></li>
+<li><a href="#-_23">-- 插入单条数据</a></li>
+<li><a href="#-_24">-- 插入多条数据</a></li>
+<li><a href="#-_25">-- 查询用户表中数据</a></li>
+<li><a href="#-_26">-- 查询和计算</a></li>
+<li><a href="#-_27">-- 条件查询</a><ul>
+<li><a href="#-_28">-- 比较运算符 =  ,  &gt;  ,  &lt;   ,  &lt;&gt;  ,  &lt;=  ,  &gt;=</a></li>
+<li><a href="#-andor">-- 逻辑运算符  AND、OR</a></li>
+<li><a href="#-like-not-like">-- 字符串模糊查询 LIKE ‘%%’ NOT LIKE ‘%%’</a></li>
+<li><a href="#-in-not-in">-- 按范围查询 IN、 NOT IN</a></li>
+</ul>
+</li>
+<li><a href="#-_29">-- 对查询出来的结果进行排序</a></li>
+<li><a href="#-group-bycount3044">-- GROUP BY搭配COUNT函数使用(譬如30个学生分别来自4个城市，按城市分组后，查询出来的记录数是4条)</a></li>
+<li><a href="#-havinggroup-by">-- HAVING只能使用在group by之后，用来对分组的结果进行再筛选</a></li>
+<li><a href="#-havingwhere">-- having和where的区别</a></li>
+<li><a href="#-limit-offsetrows">-- LIMIT offset：从符合条件的所有记录的第几条开始取数据,rows：取多少条数据</a></li>
+<li><a href="#-_30">-- 修改数据</a></li>
+<li><a href="#-_31">-- 删除数据</a></li>
+<li><a href="#-_32">-- 清空表中全部数据</a></li>
+<li><a href="#-_33">-- 数据类型</a></li>
+<li><a href="#-mysql_1">-- MYSQL函数</a></li>
+<li><a href="#-_34">-- 将字段设置唯一</a></li>
+<li><a href="#-_35">-- 将字段去除唯一</a></li>
+<li><a href="#-_36">-- 设置主键</a></li>
+<li><a href="#-_37">-- 删除主键</a></li>
+<li><a href="#-_38">-- 复合主键</a></li>
+<li><a href="#-_39">-- 建表时设置主键</a></li>
+<li><a href="#-_40">-- 复合主键设置</a></li>
+<li><a href="#-_41">-- 给字段设置自增长</a></li>
+<li><a href="#-insertupdateauto_increment">-- 获取前一条INSERT语句或者UPDATE语句执行后，对应记录中AUTO_INCREMENT字段的值</a></li>
+<li><a href="#-_42">-- 字段设置默认值</a></li>
+<li><a href="#-_43">-- 设置字段不为空</a></li>
+<li><a href="#-not-null-default">-- NOT NULL 和DEFAULT 关系</a></li>
+<li><a href="#-_44">-- 连表查询</a><ul>
+<li><a href="#-left-join">-- LEFT JOIN</a></li>
+<li><a href="#-right-join">-- RIGHT JOIN</a></li>
+<li><a href="#-inner-join">-- INNER JOIN</a></li>
+</ul>
+</li>
+<li><a href="#-_45">-- 外键</a></li>
+<li><a href="#-_46">-- 添加外键</a></li>
+<li><a href="#-_47">-- 约束条件</a></li>
+<li><a href="#-_48">-- 创建索引（如何快速的检索数据）</a></li>
+<li><a href="#-_49">-- 组合索引</a></li>
+</ul>
+</div>
+<p>-- MYSQL语句</p>
+<h4 id="-">-- 登录数据库</h4>
+<pre><code class="mysql">mysql -h 127.0.0.1 -u root -p（密码为空可以省略-p）
+</code></pre>
+
+<h4 id="-_1">-- 显示全部数据库</h4>
+<pre><code class="mysql">SHOW DATABASES;
+</code></pre>
+
+<h4 id="-_2">-- 创建数据库</h4>
+<pre><code class="mysql">CREATE DATABASE IF NOT EXISTS `sunshine` CHARSET utf8 COLLATE utf8_bin;
+</code></pre>
+
+<h4 id="-_3">-- 显示完整的创库语句</h4>
+<pre><code class="mysql">SHOW CREATE DATABASE `sunshine`;
+</code></pre>
+
+<h4 id="-mysql">-- 显示MYSQL编码</h4>
+<pre><code class="mysql">SHOW CHARSET;
+</code></pre>
+
+<h4 id="-_4">-- 查看字符集</h4>
+<pre><code class="mysql">SHOW VARIABLES LIKE '%char%';
+</code></pre>
+
+<h4 id="-_5">-- 设置字符集</h4>
+<pre><code class="mysql">CREATE DATABASE IF NOT EXISTS `sunshine` CHARSET SET = utf8;
+可简写为:
+CREATE DATABASE `sunshine` CHARSET utf8;
+</code></pre>
+
+<h4 id="-collation">-- collation的主要作用是指定字符排序时使用哪种字符编码作为排序的依据</h4>
+<pre><code class="mysql">SHOW COLLATION;
+SHOW COLLATION WHERE Charset = 'utf8';
+</code></pre>
+
+<h4 id="-_6">-- 登录数据库时选择数据库</h4>
+<pre><code class="mysql">mysql -h localhost `sunshine` -u root -p
+</code></pre>
+
+<h4 id="-_7">-- 使用数据库</h4>
+<pre><code class="mysql">USE `sunshine`;
+</code></pre>
+
+<h4 id="-_8">-- 查看全部数据表</h4>
+<pre><code class="mysql">SHOW TABLES;
+</code></pre>
+
+<h4 id="-_9">-- 创建数据表(单个字段)</h4>
+<pre><code class="mysql">CREATE TABLE IF NOT EXISTS `tbl_user` (
+    `id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT
+);
+</code></pre>
+
+<h4 id="-_10">-- 创建数据表(多个字段)</h4>
+<pre><code class="mysql">CREATE TABLE IF NOT EXISTS `tbl_collect` (
+    `id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `userid` int(10),
+    `username` varchar(50) DEFAULT ''
+);
+</code></pre>
+
+<h4 id="-_11">-- 得到创建数据表语句</h4>
+<pre><code class="mysql">SHOW CREATE TABLE `sunshine`;
+</code></pre>
+
+<h4 id="-_12">-- 打印表结构</h4>
+<pre><code class="mysql">DESC `tbl_user`;
+</code></pre>
+
+<h4 id="-myisaminnodb">-- 打印存储引擎(主要使用的是两种引擎：MyISAM和InnoDB)</h4>
+<pre><code class="mysql">SHOW ENGINES;
+</code></pre>
+
+<h4 id="-mysqlinnodb">-- MySQL默认的引擎是InnoDB，如果需要使用其他的引擎，需要特别指定</h4>
+<pre><code class="mysql">CREATE TABLE IF NOT EXISTS `tbl_collect` (
+    `id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `userid` int(10),
+    `username` varchar(50) DEFAULT ''
+) ENGINE MyISAM;
+</code></pre>
+
+<h4 id="-_13">-- 删除数据表</h4>
+<pre><code class="mysql">DROP TABLE IF EXISTS `tbl_comment`;
+</code></pre>
+
+<h4 id="-_14">-- 删除数据库中全部数据表</h4>
+<pre><code class="MYSQL">SELECT concat('DROP TABLE IF EXISTS ', table_name, ';') FROM information_schema.tables WHERE table_schema = 'subject_3.0';
+</code></pre>
+
+<h4 id="-_15">-- 修改表名</h4>
+<pre><code class="mysql">ALTER TABLE `tbl_collect` RENAME `tbl_comment`;
+</code></pre>
+
+<h4 id="-_16">-- 增加表字段</h4>
+<pre><code class="mysql">ALTER TABLE `tbl_user` ADD `addtime` int(10);
+</code></pre>
+
+<h4 id="-_17">-- 将增加的表字段放在所有字段的最前面</h4>
+<pre><code class="mysql">ALTER TABLE `tbl_user` ADD `sorts` tinyint(1) FIRST;
+</code></pre>
+
+<h4 id="-_18">-- 将增加的表字段放在任意字段后面</h4>
+<pre><code class="mysql">ALTER TABLE `tbl_user` ADD `state` tinyint(1) AFTER `id`;
+</code></pre>
+
+<h4 id="-_19">-- 删除字段</h4>
+<pre><code class="mysql">ALTER TABLE `tbl_user` DROP `state;
+</code></pre>
+
+<h4 id="-_20">-- 修改字段的属性</h4>
+<pre><code class="mysql">ALTER TABLE `tbl_user` MODIFY `id` int(11);
+</code></pre>
+
+<h4 id="-_21">-- 修改字段名和属性</h4>
+<pre><code class="mysql">ALTER TABLE `tbl_user` CHANGE `addtime` state tinyint(1);
+</code></pre>
+
+<h4 id="-_22">-- 显示警告</h4>
+<pre><code class="json">SHOW WARNING;
+</code></pre>
+
+<h4 id="-_23">-- 插入单条数据</h4>
+<pre><code class="mysql">INSERT INTO `tbl_user` ( `id`, `sorts`, `state` ) VALUES (1,1,1);
+INSERT INTO `tbl_user` VALUES (1, 2, 1);
+INSERT INTO `tbl_user` SET `sorts`=1, `id`=3, `state`=1;
+</code></pre>
+
+<h4 id="-_24">-- 插入多条数据</h4>
+<pre><code class="mysql">INSERT INTO `tbl_user` VALUES (1, 4, 1),(1, 5, 1),(1, 6, 1);
+</code></pre>
+
+<h4 id="-_25">-- 查询用户表中数据</h4>
+<pre><code class="mysql">SELECT * FROM `tbl_user`;
+SELECT `id`,`sorts`,`state` FROM `tbl_user`;
+</code></pre>
+
+<h4 id="-_26">-- 查询和计算</h4>
+<pre><code class="mysql">SELECT 2*3 FROM `tbl_user`;
+</code></pre>
+
+<h4 id="-_27">-- 条件查询</h4>
+<h5 id="-_28">-- 比较运算符 =  ,  &gt;  ,  &lt;   ,  &lt;&gt;  ,  &lt;=  ,  &gt;=</h5>
+<pre><code class="mysql">SELECT * FROM `tbl_user` WHERE `id` = 1;
+SELECT * FROM `tbl_user` WHERE `id` &gt; 1;
+SELECT * FROM `tbl_user` WHERE `id` &lt; 6;
+SELECT * FROM `tbl_user` WHERE `id` &lt;&gt; 1;
+SELECT * FROM `tbl_user` WHERE `id` &lt;= 1;
+SELECT * FROM `tbl_user` WHERE `id` &gt;= 1;
+</code></pre>
+
+<h5 id="-andor">-- 逻辑运算符  AND、OR</h5>
+<pre><code class="mysql">SELECT * FROM `tbl_user` WHERE `id` &gt; 1 AND `id` &lt; 6;
+SELECT * FROM `tbl_user` WHERE `id` BETWEEN 1 AND 6;
+SELECT * FROM `tbl_user` WHERE `id` = 1 OR `state` = 1;
+</code></pre>
+
+<h5 id="-like-not-like">-- 字符串模糊查询 LIKE ‘%%’ NOT LIKE ‘%%’</h5>
+<pre><code class="mysql">SELECT * FROM `tbl_user` WHERE `name` LIKE '%W%';
+SELECT * FROM `tbl_user` WHERE `name` LIKE '%W';
+SELECT * FROM `tbl_user` WHERE `name` LIKE 'W%';
+</code></pre>
+
+<h5 id="-in-not-in">-- 按范围查询 IN、 NOT IN</h5>
+<pre><code class="mysql">SELECT * FROM `tbl_user` WHERE `age` IN (20,25,30);
+SELECT * FROM `tbl_user` WHERE `age` NOT IN (20,25,30);
+</code></pre>
+
+<h4 id="-_29">-- 对查询出来的结果进行排序</h4>
+<pre><code class="mysql">SELECT * FROM `tbl_user` ORDER BY `id` DESC;
+SELECT * FROM `tbl_user` ORDER BY `id` ASC;
+</code></pre>
+
+<h4 id="-group-bycount3044">-- GROUP BY搭配COUNT函数使用(譬如30个学生分别来自4个城市，按城市分组后，查询出来的记录数是4条)</h4>
+<pre><code class="mysql">SELECT `city`,COUNT(city) AS num FROM `tbl_user` GROUP BY `city` DESC;
+</code></pre>
+
+<h4 id="-havinggroup-by">-- HAVING只能使用在group by之后，用来对分组的结果进行再筛选</h4>
+<pre><code class="mysql">SELECT `city`,COUNT(city) AS num FROM `tbl_user` GROUP BY `city` DESC HAVING COUNT(city) &gt; 4;
+</code></pre>
+
+<h4 id="-havingwhere">-- having和where的区别</h4>
+<pre><code class="mysql">SELECT `name` FROM `cv` WHERE `age` &gt; 20 GROUP BY `city` DESC;
+SELECT `city`,COUNT(city) FROM `tbl_user` GROUP BY `city` DESC HAVING COUNT(city) &gt; 4;
+</code></pre>
+
+<p>-- 两者的区别是先后顺序不同，where是先筛选数据，having对分组的结果进行筛选</p>
+<p>-- 按价格和销量排序</p>
+<pre><code class="mysql">SELECT * FROM `product` ORDER BY `price` DESC, `sold` ASC;
+</code></pre>
+
+<h4 id="-limit-offsetrows">-- LIMIT offset：从符合条件的所有记录的第几条开始取数据,rows：取多少条数据</h4>
+<pre><code class="mysql">SELECT `name` FROM `tbl_user` LIMIT 0,9;
+</code></pre>
+
+<h4 id="-_30">-- 修改数据</h4>
+<pre><code class="mysql">UPDATE `tbl_user` SET `name` = 'wt', 'id'=1, 'state'=3 WHERE `userid` = 1;
+</code></pre>
+
+<h4 id="-_31">-- 删除数据</h4>
+<pre><code class="mysql">DELETE FROM `tbl_user` WHERE `userid` = 1;
+</code></pre>
+
+<h4 id="-_32">-- 清空表中全部数据</h4>
+<pre><code class="mysql">TRUNCATE TABLE `tbl_user`;
+</code></pre>
+
+<h4 id="-_33">-- 数据类型</h4>
+<pre><code>整型类：BIGINT、INT、MEDIUMINT、SMALLINT、TINYINT
+浮点型：FLOAT、DOUBLE
+定点型：DECIMAL
+字符类：CHAR、VARCHAR、TEXT
+日期时间类：DATE、DATETIME、TIMESTAMP
+其他类型：ENUM、SET、BIT、BLOB
+浮点型：FLOAT(3,2)   输入1，保存为1.00……  
+FLOAT(4,2)时，输入12.4875，按保留2位进行四舍五入，得到12.49
+</code></pre>
+
+<p>-- FORMAT：保留几位小数</p>
+<pre><code class="mysql">SELECT FORMAT(a - b, 1) FROM `float`;
+</code></pre>
+
+<p>-- CHAR(M) 是用来保存固定字符长度的字符串，譬如身份证号、手机号之类。</p>
+<p>-- VARCHAR(M) 是用来保存可变长度的字符串，M是最大字符数</p>
+<pre><code class="mysql">CREATE TABLE `enumtest` (
+    test_field ENUM('one', 'two', 'three')
+);
+</code></pre>
+
+<p>-- BIT类型（大部分是用来处理权限的）</p>
+<pre><code class="mysql">CREATE TABLE `bittest` (
+    test_field BIT(4)
+);
+
+INSERT INTO `bittest` VALUES (11);
+INSERT INTO `bittest` VALUES (b'11');
+
+SELECT bin(`test_field`) FROM `bittest`; -- (查询方式不同)
+</code></pre>
+
+<p>-- SET类型与ENUM非常相似，最大的区别是，ENUM是单选，而SET是多选，SET的最多可以设置64个可选值</p>
+<pre><code class="mysql">CREATE TABLE `settest` (
+    `test_field` SET('one', 'two', 'three')
+);
+
+INSERT INTO settest VALUES ('one,two');  
+-- 插入数据时需要注意，逗号（,）后面不可以有空格。如果插入不存在的值，系统会自动截取掉多余的值
+</code></pre>
+
+<h4 id="-mysql_1">-- MYSQL函数</h4>
+<pre><code class="mysql">-- COUNT 计数
+SELECT COUNT(*) FROM tbl_name;
+
+-- NOW 取系统当前时间
+INSERT INTO tbl_name VALUES (NOW());
+
+-- FORMAT 指定小数位数
+SELECT FORMAT(col_name, n) FROM tbl_name;
+
+-- 求余数
+SELECT MOD(31, 8);
+
+-- TRUNCATE(小数，小数点后保留位数) 直接截取不四舍五入（注意与FORMAT的区别）
+SELECT TRUNCATE(col_name, 1) FROM tbl_name;
+
+-- 返回字节个数
+SELECT CHAR_LENGTH('abcdefg');
+
+-- 合并字符串
+SELECT CONCAT('hello','world');
+
+-- 使用分隔符合并字符串
+CONCAT_WS('hello','-','world');   -- hello-world
+
+-- 清除文字两侧的空白字符
+SELECT TRIM('  HELLOWORLD  ')   -- HELLOWORLD
+
+-- 假设有字符型字段friends保存了所有好有的姓名，其中保存的值均是以逗号（,）分隔（注意无空格）
+-- 譬如：tom,jack,andy 或者 andy,susan,tommy
+-- 如果想要查询好友是tom的记录，使用like查询很不方便
+-- 可以使用SELECT * FROM `friends` WHERE FIND_IN_SET('tom',friends);
+
+-- 将时间转化为时间戳
+SELECT UNIX_TIMESTAMP('2013-01-01 10:10:10');  -- (date 类型数据转换成 timestamp 形式整数)
+
+-- 将时间戳转化为时间
+SELECT FROM_UNIXTIME(1479313381);               2012-12-12 08:32:40
+select from_unixtime(1355272360,'%Y%m%d');      20121212
+
+-- IF 函数(如果表达式expr是TRUE，则IF()的返回值为T；否则IF()返回F)
+SELECT IF (2&gt;1,'T','F');
+
+-- DATABASE 用来获取当前数据库的库名
+SELECT DATABASE;
+
+-- MD5 不可逆的加密函数
+SELECT MD5('root'); 
+</code></pre>
+
+<h4 id="-_34">-- 将字段设置唯一</h4>
+<pre><code class="mysql">ALTER TABLE `cv` ADD UNIQUE KEY (`id`);
+建表语句中添加：
+CREATE TABLE `cv` (
+...
+  unique (`id`)
+);
+</code></pre>
+
+<h4 id="-_35">-- 将字段去除唯一</h4>
+<pre><code class="mysql">ALTER TABLE `cv` DROP INDEX `id`;
+</code></pre>
+
+<h4 id="-_36">-- 设置主键</h4>
+<pre><code class="mysql">ALTER TABLE `cv` MODIFY `id` int(10) UNSIGNED PRIMARY KEY;
+</code></pre>
+
+<h4 id="-_37">-- 删除主键</h4>
+<pre><code class="mysql">ALTER TABLE `cv` DROP PRIMARY KEY;
+</code></pre>
+
+<h4 id="-_38">-- 复合主键</h4>
+<pre><code class="mysql">ALTER TABLE `cv` ADD PRIMARY KEY (`id`,`name`);
+</code></pre>
+
+<h4 id="-_39">-- 建表时设置主键</h4>
+<pre><code class="mysql">CREATE TABLE `cv` (
+    `id` int(10) PRIMRAY KEY,
+    `name` varchar(20)
+)
+</code></pre>
+
+<h4 id="-_40">-- 复合主键设置</h4>
+<pre><code class="mysql">CREATE TABLE `cv2` (
+    `id` int(10),
+    `name` int(10),
+    PRIMARY KEY (`id`,`name`)
+);
+</code></pre>
+
+<h4 id="-_41">-- 给字段设置自增长</h4>
+<pre><code class="mysql">CREATE TABLE `cv` (
+    `id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT
+);
+
+ALTER TABLE `cv` MODIFY `id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT;
+</code></pre>
+
+<h4 id="-insertupdateauto_increment">-- 获取前一条INSERT语句或者UPDATE语句执行后，对应记录中AUTO_INCREMENT字段的值</h4>
+<pre><code class="mysql">SELECT LAST_INSERT_ID();
+</code></pre>
+
+<h4 id="-_42">-- 字段设置默认值</h4>
+<pre><code class="mysql">ALTER TABLE `cv` MODIFY `sex` tinyint(1) NOT NULL DEFAULT 'm';
+</code></pre>
+
+<h4 id="-_43">-- 设置字段不为空</h4>
+<pre><code class="mysql">ALTER TABLE `cv` MODIFY `sex` tinyint(1) NOT NULL DEFAULT 'm';
+</code></pre>
+
+<h4 id="-not-null-default">-- NOT NULL 和DEFAULT 关系</h4>
+<pre><code class="tex">注意：在MySQL中，null是空值，它不代表0，也不代表’’，当你忘记给一个字段设置数据时，MySQL默认会设置一个null，这时not null才会起作用;
+当用户没有给字段赋值时，默认赋null
+如果字段设置了not null时，系统会查找是否有设置default，如果设置了，则用default来代替null；
+当设置了not null，又没有设置default时，系统会报错
+
+</code></pre>
+
+<h4 id="-_44">-- 连表查询</h4>
+<h5 id="-left-join">-- LEFT JOIN</h5>
+<pre><code class="mysql">LEFT JOIN（左连接）以edu表的记录为基础，左表的记录会全部显示出来，右表如果没有能够关联上的数组，则记录中显示NULL
+
+SELECT t1.`id`,t1.`name`,t1.`age`,t2.`school`,t2.`grade` FROM `tbl_user` t1 LEFT JOIN `tbl_school` ON t1.`id` = t2.`userId`;
+</code></pre>
+
+<h5 id="-right-join">-- RIGHT JOIN</h5>
+<pre><code class="mysql">RIGHT JOIN（右连接）与左连接相反，查询出的结果以右表为主，如果edu表中的school_id与school表中的id有对应不上的情况，school_id错误的简历信息将无法显示
+
+SELECT t1.`id`,t1.`name`,t1.`age`,t2.`school`,t2.`grade` FROM `tbl_user` t1 RIGHT JOIN `tbl_school` ON t1.`id` = t2.`userId`;
+</code></pre>
+
+<h5 id="-inner-join">-- INNER JOIN</h5>
+<pre><code class="mysql">INNER JOIN（内连接）既不以左表为准，也不以右表为准，只显示两边完全符合条件的记录
+
+SELECT t1.`id`,t1.`name`,t1.`age`,t2.`school`,t2.`grade` FROM `tbl_user` t1 INNER JOIN `tbl_school` ON t1.`id` = t2.`userId`;
+</code></pre>
+
+<h4 id="-_45">-- 外键</h4>
+<pre><code class="tex">如果一张数据表中的某个字段的值是另外一张表的主键，那么我们可以称该字段为表的外键，因此，我们可以称：cv_id是edu表的外键；school_id也是edu表的外键。外键主要是用来保证数据的完整性，表里是否设置外键不影响其使用
+</code></pre>
+
+<h4 id="-_46">-- 添加外键</h4>
+<pre><code class="mysql">如果我们给数据表添加外键，需要注意，表中的外键所保存的值，与关联表里的id是否真正的能够对应更直白的说就是，shool_id里保存的id在school表里是否存在，如果不存在，添加外键时，系统会报错，因此，在测试时，我们可以直接执行truncate来清空错误数据，但是如果是在产品线上，需要通过批处理脚本，来统一修正错误数据，然后才可以添加外键
+
+ALTER TABLE edu ADD FOREIGN KEY(cv_id) REFERENCES cv(id) ON DELETE CASCADE;
+ALTER TABLE edu ADD FOREIGN KEY(school_id) REFERENCES school(id) ON DELETE CASCADE;
+</code></pre>
+
+<h4 id="-_47">-- 约束条件</h4>
+<pre><code class="t">当主表的数据被删除时，关联表的从数据如何处理。譬如school表里的记录被删除时，edu表里保存同样school_id的数据如何被系统自动处理
+1、RESTRICT：约束     如果存在从数据，不允许删除主数据。 
+2、NO ACTION     如果存在从数据，不允许删除主数据。
+3、CASCADE：级联     删除主数据，顺便也删掉从数据。 
+4、SET NULL     删除主数据，从数据外键的值设为NULL。 
+</code></pre>
+
+<h4 id="-_48">-- 创建索引（如何快速的检索数据）</h4>
+<pre><code class="mysql">ALTER TABLE tbl_name ADD INDEX index_name (col_name);
+检查select语句是否使用了正确的索引，我们一般在select之前添加explain
+ALTER TABLE cv ADD INDEX idx_gender(gender);
+EXPLAIN SELECT * FROM cv WHERE gender = 1;
+</code></pre>
+
+<h4 id="-_49">-- 组合索引</h4>
+<pre><code class="tex">对多个字段组合创建的索引ALTER TABLE tbl_name ADD INDEX index_name (column1, column2);当where条件里不仅按一个字段去进行检索，还使用了其他字段，如果这种检索是经常性的操作，那么我们需要创建组合索引假设有组合索引（A,B,C）三个字段，相当于创建了三个索引可以使用（以左为准）（A,B,C）（A,B）（A）所以，查询的顺序很重要
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../vim/" class="btn btn-neutral float-right" title="Vim">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../javascript/" class="btn btn-neutral" title="JavaScript"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../javascript/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../vim/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

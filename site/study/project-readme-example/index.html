@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>ReadMe-Example - Centos软件安装</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ReadMe-Example";
+    var mkdocs_page_input_path = "study/project-readme-example.md";
+    var mkdocs_page_url = "/study/project-readme-example/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Centos软件安装</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../javascript/">JavaScript</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mysql/">Mysql</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vim/">Vim</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">软件</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../install/ubuntu/">Ubuntu</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/vim/">Vim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/vsftpd/">Vsftpd</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/httpd/">Apache</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/mysql/">Mysql</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/php/">Php</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/redis/">Redis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/memcached/">Memcached</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/mongodb/">Mongodb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/composer/">Composer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/mkdocs/">Mkdocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/node/">Node</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../install/all/">All</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">学习</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../laravel5-thinkphp5/">Laravel&ThinkPHP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../laravel-email/">Laravel发送email</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">ReadMe-Example</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">项目概述</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">功能如下</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_3">运行环境要求</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_4">开发环境部署/安装</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_5">基础安装</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">前端框架安装</a></li>
+        
+            <li><a class="toctree-l4" href="#_7">链接入口</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_8">服务器架构说明</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_9">扩展包使用情况</a></li>
+    
+
+    <li class="toctree-l3"><a href="#artisan">自定义 Artisan 命令</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_10">队列清单</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Centos软件安装</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>学习 &raquo;</li>
+        
+      
+    
+    <li>ReadMe-Example</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <blockquote>
+<p>此文件是 <a href="https://fsdhub.com/books/laravel-specification/524/project-documentation-specification">项目文档编写规范</a> 的 readme 编写范例，点击 <a href="https://fsdhub.com/articles/523/patches/create">我要改进</a> 即可查看其 Markdown 内容。</p>
+</blockquote>
+<h2 id="_1">项目概述</h2>
+<ul>
+<li>产品名称：LaraBBS</li>
+<li>项目代号：larabbs</li>
+<li>官方地址：https://laravel-china.org/topics/6592</li>
+</ul>
+<p>LaraBBS 是一个简洁的论坛应用，使用 Laravel5.5 编写而成。一步步开发此项目的教程请见 <a href="https://laravel-china.org/topics/6592">《Web 开发实战进阶  - 从零开始构建论坛系统》</a>。</p>
+<p><img alt="" src="https://dn-phphub.qbox.me/uploads/images/201711/01/1/xcr6ijTArV.png" /></p>
+<h2 id="_2">功能如下</h2>
+<ul>
+<li>用户认证 —— 注册、登录、退出；</li>
+<li>个人中心 —— 用户个人中心，编辑资料；</li>
+<li>用户授权 —— 作者才能删除自己的内容；</li>
+<li>上传图片 —— 修改头像和编辑话题时候上传图片；</li>
+<li>表单验证 —— 使用表单验证类；</li>
+<li>文章发布时自动 Slug 翻译，支持使用队列方式以提高响应；</li>
+<li>站点『活跃用户』计算，一小时计算一次；</li>
+<li>多角色权限管理 —— 允许站长，管理员权限的存在；</li>
+<li>后台管理 —— 后台数据模型管理；</li>
+<li>邮件通知 —— 发送新回复邮件通知，队列发送邮件；</li>
+<li>站内通知 —— 话题有新回复；</li>
+<li>自定义 Artisan 命令行 —— 自定义活跃用户计算命令；</li>
+<li>自定义 Trait —— 活跃用户的业务逻辑实现；</li>
+<li>自定义中间件 —— 记录用户的最后登录时间；</li>
+<li>XSS 安全防御；</li>
+</ul>
+<h2 id="_3">运行环境要求</h2>
+<ul>
+<li>Nginx 1.8+</li>
+<li>PHP 7.0+</li>
+<li>Mysql 5.7+</li>
+<li>Redis 3.0+</li>
+<li>Memcached 1.4+</li>
+</ul>
+<h2 id="_4">开发环境部署/安装</h2>
+<p>本项目代码使用 PHP 框架 <a href="https://d.laravel-china.org/docs/5.5/">Laravel 5.5</a> 开发，本地开发环境使用 <a href="https://d.laravel-china.org/docs/5.5/homestead">Laravel Homestead</a>。</p>
+<p>下文将在假定读者已经安装好了 Homestead 的情况下进行说明。如果您还未安装 Homestead，可以参照 <a href="https://laravel-china.org/docs/5.5/homestead#installation-and-setup">Homestead 安装与设置</a> 进行安装配置。</p>
+<h3 id="_5">基础安装</h3>
+<h4 id="1">1. 克隆源代码</h4>
+<p>克隆 <code>larabbs</code> 源代码到本地：</p>
+<pre><code>&gt; git clone git@github.com:summerblue/larabbs.git
+</code></pre>
+<h4 id="2-homestead">2. 配置本地的 Homestead 环境</h4>
+<p>1). 运行以下命令编辑 Homestead.yaml 文件：</p>
+<pre><code class="shell">homestead edit
+</code></pre>
+
+<p>2). 加入对应修改，如下所示：</p>
+<pre><code>folders:
+    - map: ~/my-path/larabbs/ # 你本地的项目目录地址
+      to: /home/vagrant/larabbs
+
+sites:
+    - map: larabbs.app
+      to: /home/vagrant/larabbs/public
+
+databases:
+    - larabbs
+</code></pre>
+
+<p>3). 应用修改</p>
+<p>修改完成后保存，然后执行以下命令应用配置信息修改：</p>
+<pre><code class="shell">homestead provision
+</code></pre>
+
+<p>随后请运行 <code>homestead reload</code> 进行重启。</p>
+<h4 id="3">3. 安装扩展包依赖</h4>
+<pre><code>composer install
+</code></pre>
+<h4 id="4">4. 生成配置文件</h4>
+<pre><code>cp .env.example .env
+</code></pre>
+
+<p>你可以根据情况修改 <code>.env</code> 文件里的内容，如数据库连接、缓存、邮件设置等：</p>
+<pre><code>APP_URL=http://larabbs.app
+...
+DB_HOST=localhost
+DB_DATABASE=larabbs
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
+DOMAIN=.larabbs.app
+</code></pre>
+
+<h4 id="5">5. 生成数据表及生成测试数据</h4>
+<p>在 Homestead 的网站根目录下运行以下命令</p>
+<pre><code class="shell">$ php artisan migrate --seed
+</code></pre>
+
+<p>初始的用户角色权限已使用数据迁移生成。</p>
+<h4 id="7">7. 生成秘钥</h4>
+<pre><code class="shell">php artisan key:generate
+</code></pre>
+
+<h4 id="8-hosts">8. 配置 hosts 文件</h4>
+<pre><code>echo "192.168.10.10   phphub.app" | sudo tee -a /etc/hosts
+</code></pre>
+<h3 id="_6">前端框架安装</h3>
+<p>1). 安装 node.js</p>
+<p>直接去官网 <a href="https://nodejs.org/en/">https://nodejs.org/en/</a> 下载安装最新版本。</p>
+<p>2). 安装 Yarn</p>
+<p>请按照最新版本的 Yarn —— http://yarnpkg.cn/zh-Hans/docs/install</p>
+<p>3). 安装 Laravel Mix</p>
+<pre><code class="shell">yarn install
+</code></pre>
+
+<p>4). 编译前端内容</p>
+<pre><code class="shell">// 运行所有 Mix 任务...
+npm run dev
+
+// 运行所有 Mix 任务并缩小输出..
+npm run production
+</code></pre>
+
+<p>5). 监控修改并自动编译</p>
+<pre><code class="shell">npm run watch
+
+// 在某些环境中，当文件更改时，Webpack 不会更新。如果系统出现这种情况，请考虑使用 watch-poll 命令：
+
+npm run watch-poll
+</code></pre>
+
+<h3 id="_7">链接入口</h3>
+<ul>
+<li>首页地址：http://larabbs.app/</li>
+<li>管理后台：http://larabbs.app/admin</li>
+</ul>
+<p>管理员账号密码如下:</p>
+<pre><code>username: summer@yousails.com
+password: password
+</code></pre>
+
+<p>至此, 安装完成 ^_^。</p>
+<h2 id="_8">服务器架构说明</h2>
+<p>这里可以放一张大大的服务器架构图，下面是个例子：</p>
+<p><img alt="file" src="https://fsdhubcdn.phphub.org/uploads/images/201705/20/1/1G6aQPAZym.png" /></p>
+<blockquote>
+<p>上图使用工具 <a href="https://www.processon.com">ProcessOn</a> 绘制。</p>
+</blockquote>
+<h2 id="_9">扩展包使用情况</h2>
+<table>
+<thead>
+<tr>
+<th>扩展包</th>
+<th>一句话描述</th>
+<th>本项目应用场景</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Intervention/image">Intervention/image</a></td>
+<td>图片处理功能库</td>
+<td>用于图片裁切</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/guzzle/guzzle">guzzlehttp/guzzle</a></td>
+<td>HTTP 请求套件</td>
+<td>请求百度翻译 API</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/nrk/predis.git">predis/predis</a></td>
+<td>Redis 官方首推的 PHP 客户端开发包</td>
+<td>缓存驱动 Redis 基础扩展包</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/barryvdh/laravel-debugbar">barryvdh/laravel-debugbar</a></td>
+<td>页面调试工具栏 (对 phpdebugbar 的封装)</td>
+<td>开发环境中的 DEBUG</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/spatie/laravel-permission">spatie/laravel-permission</a></td>
+<td>角色权限管理</td>
+<td>角色和权限控制</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mewebstudio/Purifier">mewebstudio/Purifier</a></td>
+<td>用户提交的 Html 白名单过滤</td>
+<td>帖子内容的 Html 安全过滤，防止 XSS 攻击</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/letrunghieu/active">hieu-le/active</a></td>
+<td>选中状态</td>
+<td>顶部导航栏选中状态</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/summerblue/administrator">summerblue/administrator</a></td>
+<td>管理后台</td>
+<td>模型管理后台、配置信息管理后台</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/viacreative/sudo-su">viacreative/sudo-su</a></td>
+<td>用户切换</td>
+<td>开发环境中快速切换登录账号</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/laravel/horizon">laravel/horizon</a></td>
+<td>队列监控</td>
+<td>队列监控命令与页面控制台 /horizon</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="artisan">自定义 Artisan 命令</h2>
+<table>
+<thead>
+<tr>
+<th>命令行名字</th>
+<th>说明</th>
+<th>Cron</th>
+<th>代码调用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>larabbs:calculate-active-user</code></td>
+<td>生成活跃用户</td>
+<td>一小时运行一次</td>
+<td>无</td>
+</tr>
+<tr>
+<td><code>larabbs:sync-user-actived-at</code></td>
+<td>从 Redis 中同步最后登录时间到数据库中</td>
+<td>每天早上 0 点准时</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">队列清单</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>调用时机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TranslateSlug.php</td>
+<td>将话题标题翻译为 Slug</td>
+<td>TopicObserver 事件 saved()</td>
+</tr>
+<tr>
+<td>TopicReplied.php</td>
+<td>通知作者话题有新回复</td>
+<td>话题被评论以后</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../laravel-email/" class="btn btn-neutral" title="Laravel发送email"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../laravel-email/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

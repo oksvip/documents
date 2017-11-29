@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Redis - Centos软件安装</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Redis";
+    var mkdocs_page_input_path = "install/redis.md";
+    var mkdocs_page_url = "/install/redis/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Centos软件安装</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../study/git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/javascript/">JavaScript</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/mysql/">Mysql</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/vim/">Vim</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">软件</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ubuntu/">Ubuntu</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vim/">Vim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vsftpd/">Vsftpd</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../httpd/">Apache</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mysql/">Mysql</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../php/">Php</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../git/">Git</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Redis</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#redisredis">安装redis和redis拓展</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#redis">安装redis依赖文件</a></li>
+        
+            <li><a class="toctree-l4" href="#redis_1">下载redis安装包并解压</a></li>
+        
+            <li><a class="toctree-l4" href="#usrlocalbin">成功后/usr/local/bin下已有这些文件</a></li>
+        
+            <li><a class="toctree-l4" href="#redisconf">修改配置文件redis.conf</a></li>
+        
+            <li><a class="toctree-l4" href="#redis_2">修改Redis配置</a></li>
+        
+            <li><a class="toctree-l4" href="#redis_3">启动redis，查看各目录下文件</a></li>
+        
+            <li><a class="toctree-l4" href="#redis_4">客户端连接redis</a></li>
+        
+            <li><a class="toctree-l4" href="#_1">服务及开机自启动</a></li>
+        
+            <li><a class="toctree-l4" href="#redis_5">启动、关闭redis</a></li>
+        
+            <li><a class="toctree-l4" href="#php">安装php拓展</a></li>
+        
+            <li><a class="toctree-l4" href="#extensionredissophpini">将extension=redis.so加入到php.ini</a></li>
+        
+            <li><a class="toctree-l4" href="#redis_6">测试redis是否成功</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../memcached/">Memcached</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mongodb/">Mongodb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../composer/">Composer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mkdocs/">Mkdocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../node/">Node</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../all/">All</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">学习</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../study/laravel5-thinkphp5/">Laravel&ThinkPHP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/laravel-email/">Laravel发送email</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/project-readme-example/">ReadMe-Example</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Centos软件安装</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>软件 &raquo;</li>
+        
+      
+    
+    <li>Redis</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h4 id="redisredis">安装redis和redis拓展</h4>
+<pre><code class="tex">php拓展安装教程： http://www.cnblogs.com/myright/articles/5408276.html
+php全部拓展下载： http://pecl.php.net/package-stats.php
+redis下载地址：   https://github.com/MSOpenTech/redis
+php7拓展下载地址：http://pecl.php.net/package/redis/3.1.1/windows
+原文：http://blog.csdn.net/ludonqin/article/details/47211109
+</code></pre>
+
+<h5 id="redis">安装redis依赖文件</h5>
+<pre><code class="shell">$ yum install tcl
+</code></pre>
+
+<h5 id="redis_1">下载redis安装包并解压</h5>
+<pre><code class="shell">$ tar -xzvf redis-4.0-rc3.tar.gz
+$ cd redis-4.0-rc3
+$ make &amp;&amp; make install
+</code></pre>
+
+<h5 id="usrlocalbin">成功后/usr/local/bin下已有这些文件</h5>
+<pre><code class="shell">redis-benchmark  redis-check-rdb  redis-sentinel
+redis-check-aof  redis-cli        redis-server
+$ redis-server –v (查看版本命令)
+</code></pre>
+
+<h5 id="redisconf">修改配置文件redis.conf</h5>
+<pre><code class="shell">$ 创建配置文件目录，dump file 目录，进程pid目录，log目录等
+$ cd /usr/local/
+$ mkdir redis
+$ cd redis
+$ mkdir conf data log run
+$ cp /usr/local/soft/redis/redis.conf /usr/local/redis/conf/redis_6379.conf
+$ cd /usr/local/redis/conf
+$ cp redis_6379.conf redis_6379.conf.bak
+</code></pre>
+
+<h5 id="redis_2">修改Redis配置</h5>
+<pre><code class="shell">$ vi redis_6379.conf
+pidfile /usr/local/redis/run/redis_6379.pid
+dir /usr/local/redis/data
+logfile /usr/local/redis/log/redis.log
+daemonize no改为yes                   # 修改配置文件使得redis在background运行
+</code></pre>
+
+<h5 id="redis_3">启动redis，查看各目录下文件</h5>
+<pre><code class="shell">$ redis-server /usr/local/redis/conf/redis_6379.conf
+</code></pre>
+
+<h5 id="redis_4">客户端连接redis</h5>
+<pre><code class="shell">$ redis-cli
+</code></pre>
+
+<h5 id="_1">服务及开机自启动</h5>
+<pre><code class="shell"># 给reids服务设置优先级（在开始位置添加）
+#!/bin/sh
+#
+# added by wt on 20170312
+# chkconfig: 2345 90 10
+#
+# description: Redis is a persistent key-value database
+# added by wt on 20170312
+
+
+$ cp /usr/local/soft/redis/utils/redis_init_script /etc/init.d/redis
+$ cd /etc/init.d
+$ vi /etc/init.d/redis
+PIDFILE=/usr/local/redis/run/redis_${REDISPORT}.pid
+CONF=&quot;/usr/local/redis/conf/redis_${REDISPORT}.conf&quot;
+
+$ chmod +x /etc/init.d/redis    # 给启动脚本添加权限
+$ chkconfig redis on            # 添加开机启动服务
+</code></pre>
+
+<h5 id="redis_5">启动、关闭redis</h5>
+<pre><code class="shell">$ service redis start
+$ service redis stop
+</code></pre>
+
+<h5 id="php">安装php拓展</h5>
+<p><a href="http://www.cnblogs.com/GaZeon/p/5422078.html">http://www.cnblogs.com/GaZeon/p/5422078.html</a></p>
+<pre><code class="shell">$ wget https://codeload.github.com/phpredis/phpredis/zip/php7
+$ unzip phpredis-php7.zip
+$ cd phpredis-php7
+$ /usr/local/php/bin/phpize
+$ ./configure --with-php-config=/usr/local/php/bin/php-config
+$ make &amp;&amp; make install
+</code></pre>
+
+<h5 id="extensionredissophpini">将extension=redis.so加入到php.ini</h5>
+<pre><code class="shell">$ vim /usr/local/php/php.ini
+extension=redis.so
+$ service httpd restart
+</code></pre>
+
+<h5 id="redis_6">测试redis是否成功</h5>
+<pre><code class="php">&lt;?php
+$redis = new Redis();
+$redis-&gt;connect('127.0.0.1', 6379);
+$redis-&gt;set('name', 'wt');
+echo $redis-&gt;get('name');
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../memcached/" class="btn btn-neutral float-right" title="Memcached">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../git/" class="btn btn-neutral" title="Git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../git/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../memcached/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

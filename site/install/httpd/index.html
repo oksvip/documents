@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Apache - Centos软件安装</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Apache";
+    var mkdocs_page_input_path = "install/httpd.md";
+    var mkdocs_page_url = "/install/httpd/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Centos软件安装</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../study/git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/javascript/">JavaScript</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/mysql/">Mysql</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/vim/">Vim</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">软件</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ubuntu/">Ubuntu</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vim/">Vim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vsftpd/">Vsftpd</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Apache</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#apr">安装Apr</a></li>
+    
+
+    <li class="toctree-l3"><a href="#apr-util">安装Apr-Util</a></li>
+    
+
+    <li class="toctree-l3"><a href="#apache">安装Apache</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">修改配置</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_2">配置系统服务脚本</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">设置开机启动</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mysql/">Mysql</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../php/">Php</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../redis/">Redis</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../memcached/">Memcached</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mongodb/">Mongodb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../composer/">Composer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mkdocs/">Mkdocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../node/">Node</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../all/">All</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">学习</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../study/laravel5-thinkphp5/">Laravel&ThinkPHP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/laravel-email/">Laravel发送email</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../study/project-readme-example/">ReadMe-Example</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Centos软件安装</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>软件 &raquo;</li>
+        
+      
+    
+    <li>Apache</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Apache服务器；</p>
+<p>配置文件：/usr/local/httpd/conf/httpd.conf</p>
+<p>根目录：/www</p>
+<p>端口：80</p>
+<p>开机启动：是</p>
+<h4 id="apr">安装Apr</h4>
+<pre><code class="shell">$ cd apr-1.5.2
+$ ./configure --prefix=/usr/local/apr
+$ make &amp;&amp; make install
+</code></pre>
+
+<h4 id="apr-util">安装Apr-Util</h4>
+<pre><code class="shell">$ cd ../apr-util-1.5.4
+$ ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr
+$ make &amp;&amp; make install
+</code></pre>
+
+<h4 id="apache">安装Apache</h4>
+<pre><code class="shell">$ cd ../httpd-2.4.27
+$ ./configure --prefix=/usr/local/httpd --sysconfdir=/usr/local/httpd/conf --enable-so --enable-ssl --enable-cgi --enable-rewrite --with-zlib --with-pcre --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-modules=most --enable-mpms-shared=all --with-mpm=event
+$ make &amp;&amp; make install
+</code></pre>
+
+<h4 id="_1">修改配置</h4>
+<pre><code class="shell">$ cd /usr/local/httpd/conf
+$ cp httpd.conf httpd.conf.bak
+$ vi /usr/local/httpd/conf/httpd.conf
+
+1.修改ServerName www.example.com:80为localhost:80
+
+2.局域网访问：
+Order allow,deny
+Allow from all
+
+3.根目录：
+DocumentRoot &quot;/www&quot;
+
+4.主文件顺序
+DirectoryIndex index.php index.html
+
+5.加载ttf字体
+AddType application/font-sfnt            .otf .ttf
+AddType application/font-woff            .woff
+AddType application/font-woff2           .woff2
+AddType application/vnd.ms-fontobject    .eot
+phpAddType application/x-httpd-php .php
+
+6.加载rewrite
+(1)去除&quot;#LoadModule rewrite_module modules/mod_rewrite.so&quot;的注释; 
+(2)修改&quot;AllowOverride None&quot;为&quot;AllowOverride all&quot;,同时最好将Options也置为&quot;all&quot;,否则可能会出问题。 
+</code></pre>
+
+<h5 id="_2">配置系统服务脚本</h5>
+<pre><code class="shell">$ vi /etc/rc.d/init.d/httpd     # 加入以下代码
+
+#!/bin/bash  
+#  
+# httpd        Startup script for the Apache HTTP Server  
+#  
+# chkconfig: - 85 15  
+# description: The Apache HTTP Server is an efficient and extensible  \  
+#          server implementing the current HTTP standards.  
+# processname: httpd  
+# config: /usr/local/httpd/conf/httpd.conf  
+# config: /etc/sysconfig/httpd  
+# pidfile: /var/run/httpd/httpd.pid  
+#  
+### BEGIN INIT INFO  
+# Provides: httpd  
+# Required-Start: $local_fs $remote_fs $network $named  
+# Required-Stop: $local_fs $remote_fs $network  
+# Should-Start: distcache  
+# Short-Description: start and stop Apache HTTP Server  
+# Description: The Apache HTTP Server is an extensible server   
+#  implementing the current HTTP standards.  
+### END INIT INFO  
+
+# Source function library.  
+. /etc/rc.d/init.d/functions  
+
+if [ -f /etc/sysconfig/httpd ]; then  
+        . /etc/sysconfig/httpd  
+fi  
+
+# Start httpd in the C locale by default.  
+HTTPD_LANG=${HTTPD_LANG-&quot;C&quot;}  
+
+# This will prevent initlog from swallowing up a pass-phrase prompt if  
+# mod_ssl needs a pass-phrase from the user.  
+INITLOG_ARGS=&quot;&quot;  
+
+# Set HTTPD=/usr/sbin/httpd.worker in /etc/sysconfig/httpd to use a server  
+# with the thread-based &quot;worker&quot; MPM; BE WARNED that some modules may not  
+# work correctly with a thread-based MPM; notably PHP will refuse to start.  
+
+# Path to the apachectl script, server binary, and short-form for messages.  
+apachectl=/usr/local/httpd/bin/apachectl  
+httpd=${HTTPD-/usr/local/httpd/bin/httpd}  
+prog=httpd  
+pidfile=${PIDFILE-/usr/local/httpd/logs/httpd.pid}  
+lockfile=${LOCKFILE-/var/lock/subsys/httpd}  
+RETVAL=0  
+STOP_TIMEOUT=${STOP_TIMEOUT-10}  
+
+# The semantics of these two functions differ from the way apachectl does  
+# things -- attempting to start while running is a failure, and shutdown  
+# when not running is also a failure.  So we just do it the way init scripts  
+# are expected to behave here.  
+start() {  
+        echo -n $&quot;Starting $prog: &quot;  
+        LANG=$HTTPD_LANG daemon --pidfile=${pidfile} $httpd $OPTIONS  
+        RETVAL=$?  
+        echo  
+        [ $RETVAL = 0 ] &amp;&amp; touch ${lockfile}  
+        return $RETVAL  
+}  
+
+# When stopping httpd, a delay (of default 10 second) is required  
+# before SIGKILLing the httpd parent; this gives enough time for the  
+# httpd parent to SIGKILL any errant children.  
+stop() {  
+    echo -n $&quot;Stopping $prog: &quot;  
+    killproc -p ${pidfile} -d ${STOP_TIMEOUT} $httpd  
+    RETVAL=$?  
+    echo  
+    [ $RETVAL = 0 ] &amp;&amp; rm -f ${lockfile} ${pidfile}  
+}  
+reload() {  
+    echo -n $&quot;Reloading $prog: &quot;  
+    if ! LANG=$HTTPD_LANG $httpd $OPTIONS -t &gt;&amp;/dev/null; then  
+        RETVAL=6  
+        echo $&quot;not reloading due to configuration syntax error&quot;  
+        failure $&quot;not reloading $httpd due to configuration syntax error&quot;  
+    else  
+        # Force LSB behaviour from killproc  
+        LSB=1 killproc -p ${pidfile} $httpd -HUP  
+        RETVAL=$?  
+        if [ $RETVAL -eq 7 ]; then  
+            failure $&quot;httpd shutdown&quot;  
+        fi  
+    fi  
+    echo  
+}  
+
+# See how we were called.  
+case &quot;$1&quot; in  
+  start)  
+    start  
+    ;;  
+  stop)  
+    stop  
+    ;;  
+  status)  
+        status -p ${pidfile} $httpd  
+    RETVAL=$?  
+    ;;  
+  restart)  
+    stop  
+    start  
+    ;;  
+  condrestart|try-restart)  
+    if status -p ${pidfile} $httpd &gt;&amp;/dev/null; then  
+        stop  
+        start  
+    fi  
+    ;;  
+  force-reload|reload)  
+        reload  
+    ;;  
+  graceful|help|configtest|fullstatus)  
+    $apachectl $@  
+    RETVAL=$?  
+    ;;  
+  *)  
+    echo $&quot;Usage: $prog {start|stop|restart|condrestart|try-restart|force-reload|reload|status|fullstatus|graceful|help|configtest}&quot;  
+    RETVAL=2  
+esac  
+exit $RETVAL
+
+
+$ chmod +x /etc/rc.d/init.d/httpd           # 为此脚本赋予执行权限
+$ chkconfig --add httpd                     # 加入服务列表
+$ service httpd start                       # 启动Apache服务
+</code></pre>
+
+<h5 id="_3">设置开机启动</h5>
+<pre><code class="shell">$ vi /etc/rc.local      # 在最后一行添加：
+$ service httpd start
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mysql/" class="btn btn-neutral float-right" title="Mysql">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../vsftpd/" class="btn btn-neutral" title="Vsftpd"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../vsftpd/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mysql/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
