@@ -1,4 +1,4 @@
-site_name: Centos软件安装
+site_name: 开发笔记
 theme: readthedocs
 pages:
     - 简介: 'index.md'
