@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Redis - Centos软件安装</title>
+  <title>ubuntu-mutiply-php-version - Centos软件安装</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Redis";
-    var mkdocs_page_input_path = "install/redis.md";
-    var mkdocs_page_url = "/install/redis/";
+    var mkdocs_page_name = "ubuntu-mutiply-php-version";
+    var mkdocs_page_input_path = "install/ubuntu-mutiply-php-version.md";
+    var mkdocs_page_url = "/install/ubuntu-mutiply-php-version/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -94,9 +94,35 @@
                     
     <a class="" href="../ubuntu/">Ubuntu-php-version</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../ubuntu-mutiply-php-version/">ubuntu-mutiply-php-version</a>
+    <a class="current" href="./">ubuntu-mutiply-php-version</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ubuntu-phpphp">ubuntu php多版本共存切换，为每个站点设置不同的php版本</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#apache2">安装apache2</a></li>
+        
+            <li><a class="toctree-l4" href="#mysql57ubuntu1604">安装：mysql5.7（ubuntu16.04自带）</a></li>
+        
+            <li><a class="toctree-l4" href="#php56">安装：php5.6</a></li>
+        
+            <li><a class="toctree-l4" href="#php70">安装：php7.0</a></li>
+        
+            <li><a class="toctree-l4" href="#php71">安装：php7.1</a></li>
+        
+            <li><a class="toctree-l4" href="#_1">开启重写转向</a></li>
+        
+            <li><a class="toctree-l4" href="#bashrcphp">编辑bashrc加入自定义命令，为方便在不同php版本间切换</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">启用以下两个模块</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -122,43 +148,9 @@
                     
     <a class="" href="../git/">Git</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Redis</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#redisredis">安装redis和redis拓展</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#redis">安装redis依赖文件</a></li>
-        
-            <li><a class="toctree-l4" href="#redis_1">下载redis安装包并解压</a></li>
-        
-            <li><a class="toctree-l4" href="#usrlocalbin">成功后/usr/local/bin下已有这些文件</a></li>
-        
-            <li><a class="toctree-l4" href="#redisconf">修改配置文件redis.conf</a></li>
-        
-            <li><a class="toctree-l4" href="#redis_2">修改Redis配置</a></li>
-        
-            <li><a class="toctree-l4" href="#redis_3">启动redis，查看各目录下文件</a></li>
-        
-            <li><a class="toctree-l4" href="#redis_4">客户端连接redis</a></li>
-        
-            <li><a class="toctree-l4" href="#_1">服务及开机自启动</a></li>
-        
-            <li><a class="toctree-l4" href="#redis_5">启动、关闭redis</a></li>
-        
-            <li><a class="toctree-l4" href="#php">安装php拓展</a></li>
-        
-            <li><a class="toctree-l4" href="#extensionredissophpini">将extension=redis.so加入到php.ini</a></li>
-        
-            <li><a class="toctree-l4" href="#redis_6">测试redis是否成功</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../redis/">Redis</a>
                 </li>
                 <li class="">
                     
@@ -232,7 +224,7 @@
         
       
     
-    <li>Redis</li>
+    <li>ubuntu-mutiply-php-version</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -242,105 +234,88 @@
           <div role="main">
             <div class="section">
               
-                <h4 id="redisredis">安装redis和redis拓展</h4>
-<pre><code class="tex">php拓展安装教程： http://www.cnblogs.com/myright/articles/5408276.html
-php全部拓展下载： http://pecl.php.net/package-stats.php
-redis下载地址：   https://github.com/MSOpenTech/redis
-php7拓展下载地址：http://pecl.php.net/package/redis/3.1.1/windows
-原文：http://blog.csdn.net/ludonqin/article/details/47211109
+                <div class="toc">
+<ul>
+<li><a href="#ubuntu-phpphp">ubuntu php多版本共存切换，为每个站点设置不同的php版本</a><ul>
+<li><a href="#apache2">安装apache2</a></li>
+<li><a href="#mysql57ubuntu1604">安装：mysql5.7（ubuntu16.04自带）</a></li>
+<li><a href="#php56">安装：php5.6</a></li>
+<li><a href="#php70">安装：php7.0</a></li>
+<li><a href="#php71">安装：php7.1</a></li>
+<li><a href="#_1">开启重写转向</a></li>
+<li><a href="#bashrcphp">编辑bashrc加入自定义命令，为方便在不同php版本间切换</a></li>
+<li><a href="#_2">启用以下两个模块</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="ubuntu-phpphp">ubuntu php多版本共存切换，为每个站点设置不同的php版本</h1>
+<blockquote>
+<p>做开发时，由于本机开发的php版本跟线上发布的php版本不一致，很容易在上线后，发现因版本的影响导致一些bug，但又不想重新去换本机的php版本，那么多版本共存就很方便了！有必要时，切换到指定版本测试下，没问题再上线就OK了！</p>
+</blockquote>
+<p>LMAP环境安装记录如下：</p>
+<h4 id="apache2">安装apache2</h4>
+<pre><code class="shell">$ sudo apt-get install -y apache2
 </code></pre>
 
-<h5 id="redis">安装redis依赖文件</h5>
-<pre><code class="shell">$ yum install tcl
+<h4 id="mysql57ubuntu1604">安装：mysql5.7（ubuntu16.04自带）</h4>
+<pre><code class="shell">$ sudo apt instal -y mysql-server mysql-client libmysqlclient-dev mysql-workbench
 </code></pre>
 
-<h5 id="redis_1">下载redis安装包并解压</h5>
-<pre><code class="shell">$ tar -xzvf redis-4.0-rc3.tar.gz
-$ cd redis-4.0-rc3
-$ make &amp;&amp; make install
+<h4 id="php56">安装：php5.6</h4>
+<pre><code class="shell">$ sudo add-apt-repository ppa:ondrej/php
+$ sudo apt-get update
+$ sudo apt-get install -y php5.6-common php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml php5.6-gd php5.6-curl php5.6-json php5.6-fpm php5.6-zip php5.6-mcrypt libapache2-mod-php5.6
 </code></pre>
 
-<h5 id="usrlocalbin">成功后/usr/local/bin下已有这些文件</h5>
-<pre><code class="shell">redis-benchmark  redis-check-rdb  redis-sentinel
-redis-check-aof  redis-cli        redis-server
-$ redis-server –v (查看版本命令)
+<h4 id="php70">安装：php7.0</h4>
+<pre><code class="shell">$ sudo apt-get install -y php7.0-common php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-xml php7.0-gd php7.0-curl php7.0-json php7.0-fpm php7.0-zip php7.0-mcrypt libapache2-mod-php7.0
 </code></pre>
 
-<h5 id="redisconf">修改配置文件redis.conf</h5>
-<pre><code class="shell">$ 创建配置文件目录，dump file 目录，进程pid目录，log目录等
-$ cd /usr/local/
-$ mkdir redis
-$ cd redis
-$ mkdir conf data log run
-$ cp /usr/local/soft/redis/redis.conf /usr/local/redis/conf/redis_6379.conf
-$ cd /usr/local/redis/conf
-$ cp redis_6379.conf redis_6379.conf.bak
+<h4 id="php71">安装：php7.1</h4>
+<pre><code class="sheel">$ sudo apt-get install -y php7.1-common php7.1-mbstring php7.1-mcrypt php7.1-mysql php7.1-xml php7.1-gd php7.1-curl php7.1-json php7.1-fpm php7.1-zip php7.1-mcrypt libapache2-mod-php7.1
 </code></pre>
 
-<h5 id="redis_2">修改Redis配置</h5>
-<pre><code class="shell">$ vi redis_6379.conf
-pidfile /usr/local/redis/run/redis_6379.pid
-dir /usr/local/redis/data
-logfile /usr/local/redis/log/redis.log
-daemonize no改为yes                   # 修改配置文件使得redis在background运行
+<h4 id="_1">开启重写转向</h4>
+<pre><code class="shell">$ sudo a2enmod rewrite
+$ sudo a2enmod headers
+$ sudo service apache2 restart
 </code></pre>
 
-<h5 id="redis_3">启动redis，查看各目录下文件</h5>
-<pre><code class="shell">$ redis-server /usr/local/redis/conf/redis_6379.conf
+<pre><code class="shell">$ sudo vi .bashrc
 </code></pre>
 
-<h5 id="redis_4">客户端连接redis</h5>
-<pre><code class="shell">$ redis-cli
+<h4 id="bashrcphp">编辑bashrc加入自定义命令，为方便在不同php版本间切换</h4>
+<pre><code class="txt">alias php56='sudo a2dismod php7.0 &amp;&amp; sudo a2dismod php7.1 &amp;&amp; sudo a2enmod php5.6 &amp;&amp; sudo service apache2 restart'
+alias php70='sudo a2dismod php5.6 &amp;&amp; sudo a2dismod php7.1 &amp;&amp; sudo a2enmod php7.0 &amp;&amp; sudo service apache2 restart'
+alias php71='sudo a2dismod php5.6 &amp;&amp; sudo a2dismod php7.0 &amp;&amp; sudo a2enmod php7.1 &amp;&amp; sudo service apache2 restart'
 </code></pre>
 
-<h5 id="_1">服务及开机自启动</h5>
-<pre><code class="shell"># 给reids服务设置优先级（在开始位置添加）
-#!/bin/sh
-#
-# added by wt on 20170312
-# chkconfig: 2345 90 10
-#
-# description: Redis is a persistent key-value database
-# added by wt on 20170312
-
-
-$ cp /usr/local/soft/redis/utils/redis_init_script /etc/init.d/redis
-$ cd /etc/init.d
-$ vi /etc/init.d/redis
-PIDFILE=/usr/local/redis/run/redis_${REDISPORT}.pid
-CONF=&quot;/usr/local/redis/conf/redis_${REDISPORT}.conf&quot;
-
-$ chmod +x /etc/init.d/redis    # 给启动脚本添加权限
-$ chkconfig redis on            # 添加开机启动服务
+<p>安装完成后，重启电脑，默认是运行5.6版本的php（命令行下php-v 是显示最高版本7.1）
+在/etc/php目录下有对应版本号的文件夹，编辑相应的php.ini可配置相应的php版本，命令行下php70可切换到php7版本，其它类同
+网上搜索一片，很多都是用nginx来处理多站点用不同php版本，但我真不想那么麻烦再装个nginx，基本上都是用代理转发，apache本身就有proxy，所以用apache本身的也就好
+个人开发习惯上是用虚拟主机，所以，配置了一下虚拟主机的目录</p>
+<pre><code class="tex"># 以下配置放到文件最后面，在此配置后面的网站，也会引用此php版本
+&lt;VirtualHost *:80&gt;
+        ServerName my.xxx.com
+        DocumentRoot /var/www/html/xxx
+        // 加载不同的php版本
+        &lt;FilesMatch \.php$&gt;
+            SetHandler &quot;proxy:unix:/run/php/php7.0-fpm.sock|fcgi://localhost&quot;
+        &lt;/FilesMatch&gt;
+        // 加载不同的php版本
+&lt;/VirtualHost&gt;
 </code></pre>
 
-<h5 id="redis_5">启动、关闭redis</h5>
-<pre><code class="shell">$ service redis start
-$ service redis stop
+<h4 id="_2">启用以下两个模块</h4>
+<pre><code class="shell">$ sudo a2enmod proxy proxy_fcgi
+$ sudo service apache2 restart
 </code></pre>
 
-<h5 id="php">安装php拓展</h5>
-<p><a href="http://www.cnblogs.com/GaZeon/p/5422078.html">http://www.cnblogs.com/GaZeon/p/5422078.html</a></p>
-<pre><code class="shell">$ wget https://codeload.github.com/phpredis/phpredis/zip/php7
-$ unzip phpredis-php7.zip
-$ cd phpredis-php7
-$ /usr/local/php/bin/phpize
-$ ./configure --with-php-config=/usr/local/php/bin/php-config
-$ make &amp;&amp; make install
-</code></pre>
-
-<h5 id="extensionredissophpini">将extension=redis.so加入到php.ini</h5>
-<pre><code class="shell">$ vim /usr/local/php/php.ini
-extension=redis.so
-$ service httpd restart
-</code></pre>
-
-<h5 id="redis_6">测试redis是否成功</h5>
-<pre><code class="php">&lt;?php
-$redis = new Redis();
-$redis-&gt;connect('127.0.0.1', 6379);
-$redis-&gt;set('name', 'wt');
-echo $redis-&gt;get('name');
+<p>注意apahce版本为2.4.10版本以上才有效，本人ubuntu14.04系统的apache为2.4.7版本，所以升级到最新版本</p>
+<pre><code class="shell">$ sudo add-apt-repository ppa:ondrej/apache2
+$ sudo apt-get update
+$ sudo apt-get dist-upgrade
 </code></pre>
               
             </div>
@@ -349,10 +324,10 @@ echo $redis-&gt;get('name');
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../memcached/" class="btn btn-neutral float-right" title="Memcached">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../vim/" class="btn btn-neutral float-right" title="Vim">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../git/" class="btn btn-neutral" title="Git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ubuntu/" class="btn btn-neutral" title="Ubuntu-php-version"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -378,10 +353,10 @@ echo $redis-&gt;get('name');
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../git/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../ubuntu/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../memcached/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../vim/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

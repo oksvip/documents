@@ -7,8 +7,11 @@ pages:
         - 'JavaScript': 'study/javascript.md'
         - 'Mysql': 'study/mysql.md'
         - 'Vim': 'study/vim.md'
+    - 知识:
+        - '提问的智慧': 'study/ask-wisdom.md'
     - 软件:
-        - 'Ubuntu': 'install/ubuntu.md'
+        - 'Ubuntu-php-version': 'install/ubuntu.md'
+        - 'ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
         - 'Vim': 'install/vim.md'
         - 'Vsftpd': 'install/vsftpd.md'
         - 'Apache': 'install/httpd.md'

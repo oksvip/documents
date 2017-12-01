@@ -34,8 +34,32 @@ $ sudo apt install php
 $ sudo apt-get install libapache2-mod-php
 
 ```
+#### 5.Install PHP7.1.11
 
-#### 5.Install Mysql5.7.20
+```shell
+$ sudo add-apt-repository ppa:ondrej/php
+$ sudo apt-get update
+$ sudo apt-get install php7.1
+$ sudo apt-get install php7.1-mbstring
+$ sudo apt-get install php7.1-gd
+$ sudo apt-get install php7.1-dom
+$ sudo apt-get install php7.1-mysql
+```
+
+#### 6.Change Apache and terminal PHP Version
+
+```shell
+Change Version From 7.0 TO PHP 7.1：
+Apache：
+$ sudo a2dismod php7.0
+$ sudo a2enmod php7.1
+$ sudo service apache2 restart
+
+Terminal：
+$ sudo update-alternatives --set php /usr/bin/php7.1
+```
+
+#### 7.Install Mysql5.7.20
 
 ```shell
 
@@ -45,7 +69,7 @@ $ mysql_secure_installation
 
 ```
 
-#### 6.Install phpMyAdmin4.5.4
+#### 8.Install phpMyAdmin4.5.4
 
 ```shell
 
@@ -54,7 +78,7 @@ $ sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 
 ```
 
-#### 7.Config phpMyAdmin
+#### 9.Config phpMyAdmin
 
 ```shell
 
@@ -66,7 +90,7 @@ update the text:
 
 ```
 
-#### 8.Change mysql datadir
+#### 10.Change mysql datadir
 
 ```shell
 
@@ -97,7 +121,7 @@ $ sudo service mysql restart
 
 ```
 
-#### 9.Config apache documentroot route
+#### 11.Config apache documentroot route
 
 ```shell
 
@@ -119,7 +143,7 @@ $ sudo service apache2 restart
 
 ```
 
-#### 10.Config apache domain request
+#### 12.Config apache domain request
 
 ```shell
 
@@ -138,7 +162,7 @@ $ sudo service apache2 restart
 
 ```
 
-#### 11.Start Mysql remote access
+#### 13.Start Mysql remote access
 
 ```shell
 

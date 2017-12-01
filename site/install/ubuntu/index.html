@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Ubuntu - Centos软件安装</title>
+  <title>Ubuntu-php-version - Centos软件安装</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Ubuntu";
+    var mkdocs_page_name = "Ubuntu-php-version";
     var mkdocs_page_input_path = "install/ubuntu.md";
     var mkdocs_page_url = "/install/ubuntu/";
   </script>
@@ -77,11 +77,22 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">知识</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../study/ask-wisdom/">提问的智慧</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">软件</span>
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Ubuntu</a>
+    <a class="current" href="./">Ubuntu-php-version</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#ubuntu1604-install-lamp-enviroment">Ubuntu16.04 install Lamp Enviroment</a></li>
@@ -96,24 +107,32 @@
         
             <li><a class="toctree-l4" href="#4install-php7022">4.Install PHP7.0.22</a></li>
         
-            <li><a class="toctree-l4" href="#5install-mysql5720">5.Install Mysql5.7.20</a></li>
+            <li><a class="toctree-l4" href="#5install-php7111">5.Install PHP7.1.11</a></li>
         
-            <li><a class="toctree-l4" href="#6install-phpmyadmin454">6.Install phpMyAdmin4.5.4</a></li>
+            <li><a class="toctree-l4" href="#6change-apache-and-terminal-php-version">6.Change Apache and terminal PHP Version</a></li>
         
-            <li><a class="toctree-l4" href="#7config-phpmyadmin">7.Config phpMyAdmin</a></li>
+            <li><a class="toctree-l4" href="#7install-mysql5720">7.Install Mysql5.7.20</a></li>
         
-            <li><a class="toctree-l4" href="#8change-mysql-datadir">8.Change mysql datadir</a></li>
+            <li><a class="toctree-l4" href="#8install-phpmyadmin454">8.Install phpMyAdmin4.5.4</a></li>
         
-            <li><a class="toctree-l4" href="#9config-apache-documentroot-route">9.Config apache documentroot route</a></li>
+            <li><a class="toctree-l4" href="#9config-phpmyadmin">9.Config phpMyAdmin</a></li>
         
-            <li><a class="toctree-l4" href="#10config-apache-domain-request">10.Config apache domain request</a></li>
+            <li><a class="toctree-l4" href="#10change-mysql-datadir">10.Change mysql datadir</a></li>
         
-            <li><a class="toctree-l4" href="#11start-mysql-remote-access">11.Start Mysql remote access</a></li>
+            <li><a class="toctree-l4" href="#11config-apache-documentroot-route">11.Config apache documentroot route</a></li>
+        
+            <li><a class="toctree-l4" href="#12config-apache-domain-request">12.Config apache domain request</a></li>
+        
+            <li><a class="toctree-l4" href="#13start-mysql-remote-access">13.Start Mysql remote access</a></li>
         
         </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ubuntu-mutiply-php-version/">ubuntu-mutiply-php-version</a>
                 </li>
                 <li class="">
                     
@@ -215,7 +234,7 @@
         
       
     
-    <li>Ubuntu</li>
+    <li>Ubuntu-php-version</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -232,13 +251,15 @@
 <li><a href="#2change-root-password">2.Change root password</a></li>
 <li><a href="#3install-apache2418">3.Install Apache2.4.18</a></li>
 <li><a href="#4install-php7022">4.Install PHP7.0.22</a></li>
-<li><a href="#5install-mysql5720">5.Install Mysql5.7.20</a></li>
-<li><a href="#6install-phpmyadmin454">6.Install phpMyAdmin4.5.4</a></li>
-<li><a href="#7config-phpmyadmin">7.Config phpMyAdmin</a></li>
-<li><a href="#8change-mysql-datadir">8.Change mysql datadir</a></li>
-<li><a href="#9config-apache-documentroot-route">9.Config apache documentroot route</a></li>
-<li><a href="#10config-apache-domain-request">10.Config apache domain request</a></li>
-<li><a href="#11start-mysql-remote-access">11.Start Mysql remote access</a></li>
+<li><a href="#5install-php7111">5.Install PHP7.1.11</a></li>
+<li><a href="#6change-apache-and-terminal-php-version">6.Change Apache and terminal PHP Version</a></li>
+<li><a href="#7install-mysql5720">7.Install Mysql5.7.20</a></li>
+<li><a href="#8install-phpmyadmin454">8.Install phpMyAdmin4.5.4</a></li>
+<li><a href="#9config-phpmyadmin">9.Config phpMyAdmin</a></li>
+<li><a href="#10change-mysql-datadir">10.Change mysql datadir</a></li>
+<li><a href="#11config-apache-documentroot-route">11.Config apache documentroot route</a></li>
+<li><a href="#12config-apache-domain-request">12.Config apache domain request</a></li>
+<li><a href="#13start-mysql-remote-access">13.Start Mysql remote access</a></li>
 </ul>
 </li>
 </ul>
@@ -269,7 +290,28 @@ $ sudo apt-get install libapache2-mod-php
 
 </code></pre>
 
-<h4 id="5install-mysql5720">5.Install Mysql5.7.20</h4>
+<h4 id="5install-php7111">5.Install PHP7.1.11</h4>
+<pre><code class="shell">$ sudo add-apt-repository ppa:ondrej/php
+$ sudo apt-get update
+$ sudo apt-get install php7.1
+$ sudo apt-get install php7.1-mbstring
+$ sudo apt-get install php7.1-gd
+$ sudo apt-get install php7.1-dom
+$ sudo apt-get install php7.1-mysql
+</code></pre>
+
+<h4 id="6change-apache-and-terminal-php-version">6.Change Apache and terminal PHP Version</h4>
+<pre><code class="shell">Change Version From 7.0 TO PHP 7.1：
+Apache：
+$ sudo a2dismod php7.0
+$ sudo a2enmod php7.1
+$ sudo service apache2 restart
+
+Terminal：
+$ sudo update-alternatives --set php /usr/bin/php7.1
+</code></pre>
+
+<h4 id="7install-mysql5720">7.Install Mysql5.7.20</h4>
 <pre><code class="shell">
 $ sudo apt install mysql-server php7.0-mysql
 $ sudo apt-get install mysql-client
@@ -277,14 +319,14 @@ $ mysql_secure_installation
 
 </code></pre>
 
-<h4 id="6install-phpmyadmin454">6.Install phpMyAdmin4.5.4</h4>
+<h4 id="8install-phpmyadmin454">8.Install phpMyAdmin4.5.4</h4>
 <pre><code class="shell">
 $ sudo apt-get install phpmyadmin
 $ sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 
 </code></pre>
 
-<h4 id="7config-phpmyadmin">7.Config phpMyAdmin</h4>
+<h4 id="9config-phpmyadmin">9.Config phpMyAdmin</h4>
 <pre><code class="shell">
 $ nano /etc/php/7.0/apache2/php.ini
 
@@ -294,7 +336,7 @@ update the text:
 
 </code></pre>
 
-<h4 id="8change-mysql-datadir">8.Change mysql datadir</h4>
+<h4 id="10change-mysql-datadir">10.Change mysql datadir</h4>
 <pre><code class="shell">
 $ sudo service mysql stop
 $ sudo mkdir -p /data/mysql
@@ -323,7 +365,7 @@ $ sudo service mysql restart
 
 </code></pre>
 
-<h4 id="9config-apache-documentroot-route">9.Config apache documentroot route</h4>
+<h4 id="11config-apache-documentroot-route">11.Config apache documentroot route</h4>
 <pre><code class="shell">
 $ sudo mkdir /home/sunrise/www
 $ cd /etc/apache2/sites-available/
@@ -343,7 +385,7 @@ $ sudo service apache2 restart
 
 </code></pre>
 
-<h4 id="10config-apache-domain-request">10.Config apache domain request</h4>
+<h4 id="12config-apache-domain-request">12.Config apache domain request</h4>
 <pre><code class="shell">
 $ cd /etc/apache2/sites-available/
 $ sudo cp 000-default.conf phpmyadmin.conf
@@ -360,7 +402,7 @@ $ sudo service apache2 restart
 
 </code></pre>
 
-<h4 id="11start-mysql-remote-access">11.Start Mysql remote access</h4>
+<h4 id="13start-mysql-remote-access">13.Start Mysql remote access</h4>
 <pre><code class="shell">
 $ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 
@@ -381,10 +423,10 @@ Permission:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../vim/" class="btn btn-neutral float-right" title="Vim">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ubuntu-mutiply-php-version/" class="btn btn-neutral float-right" title="ubuntu-mutiply-php-version">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../study/vim/" class="btn btn-neutral" title="Vim"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../study/ask-wisdom/" class="btn btn-neutral" title="提问的智慧"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -410,10 +452,10 @@ Permission:
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../study/vim/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../study/ask-wisdom/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../vim/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../ubuntu-mutiply-php-version/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
