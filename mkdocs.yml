@@ -2,6 +2,7 @@ site_name: 开发笔记
 theme: readthedocs
 pages:
     - 简介: 'index.md'
+    - 链接: 'links/links.md'
     - 笔记:
         - 'Git': 'study/git.md'
         - 'JavaScript': 'study/javascript.md'
@@ -9,9 +10,11 @@ pages:
         - 'Vim': 'study/vim.md'
     - 知识:
         - '提问的智慧': 'study/ask-wisdom.md'
+        - '快速学习Laravel': 'study/learn-laravel.md'
     - 软件:
         - 'Ubuntu-php-version': 'install/ubuntu.md'
         - 'ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
+        - 'Ubuntu-lnmp': 'install/lnmp-shell.md'
         - 'Vim': 'install/vim.md'
         - 'Vsftpd': 'install/vsftpd.md'
         - 'Apache': 'install/httpd.md'
@@ -23,9 +26,11 @@ pages:
         - 'Mongodb': 'install/mongodb.md'
         - 'Composer': 'install/composer.md'
         - 'Mkdocs': 'install/mkdocs.md'
+        - 'Gitbook': 'install/gitbook.md'
         - 'Node': 'install/node.md'
         - 'All': 'install/all.md'
     - 学习:
         - 'Laravel&ThinkPHP': 'study/laravel5-thinkphp5.md'
         - 'Laravel发送email': 'study/laravel-email.md'
         - 'ReadMe-Example': 'study/project-readme-example.md'
+        - 'MarkDown': 'study/markdown.md'
