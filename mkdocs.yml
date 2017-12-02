@@ -11,6 +11,7 @@ pages:
     - 知识:
         - '提问的智慧': 'study/ask-wisdom.md'
         - '快速学习Laravel': 'study/learn-laravel.md'
+        - 'php面试题目': 'study/review.md'
     - 软件:
         - 'Ubuntu-php-version': 'install/ubuntu.md'
         - 'ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
