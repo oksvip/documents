@@ -9,6 +9,7 @@ pages:
         - 'Mysql': 'study/mysql.md'
         - 'Vim': 'study/vim.md'
     - 知识:
+        - '如何学习PHP': 'study/learn-php.md'
         - '提问的智慧': 'study/ask-wisdom.md'
         - '快速学习Laravel': 'study/learn-laravel.md'
         - 'php面试题目': 'study/review.md'
