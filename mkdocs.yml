@@ -2,6 +2,8 @@ site_name: 开发笔记
 theme: readthedocs
 pages:
     - 简介: 'index.md'
+    - PHP笔记: 'php.md'
+    - 官方文档: 'manual.md'
     - 链接: 'links/links.md'
     - 笔记:
         - 'Git': 'study/git.md'
