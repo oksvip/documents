@@ -10,6 +10,9 @@ pages:
         - 'JavaScript': 'study/javascript.md'
         - 'Mysql': 'study/mysql.md'
         - 'Vim': 'study/vim.md'
+        - 'Crontab': 'study/crontab.md'
+    - 框架:
+        - 'codeIgniter': 'frameworks/codeigniter.md'
     - 知识:
         - '如何学习PHP': 'study/learn-php.md'
         - '提问的智慧': 'study/ask-wisdom.md'
@@ -20,6 +23,7 @@ pages:
         - 'ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
         - 'Ubuntu-lnmp': 'install/lnmp-shell.md'
         - 'Vim': 'install/vim.md'
+        - 'Remote Link': 'install/remote.md'
         - 'Vsftpd': 'install/vsftpd.md'
         - 'Apache': 'install/httpd.md'
         - 'Mysql': 'install/mysql.md'
@@ -32,6 +36,9 @@ pages:
         - 'Mkdocs': 'install/mkdocs.md'
         - 'Gitbook': 'install/gitbook.md'
         - 'Node': 'install/node.md'
+        - 'FileZilla': 'install/filezilla.md'
+        - 'Xdebug': 'install/xdebug.md'
+        - 'wampserver-php': 'install/wampserver.md'
         - 'All': 'install/all.md'
     - 学习:
         - 'Laravel&ThinkPHP': 'study/laravel5-thinkphp5.md'
