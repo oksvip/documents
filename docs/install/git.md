@@ -28,3 +28,12 @@ $ source /etc/bashrc
 $ git --version
 git version 2.1.2
 ```
+
+##### 5) 设置提交不需输入帐号密码
+
+```tex
+$ git config --global credential.helper store
+$ git push // 输入帐号密码，以后就不用输入了
+```
+
+

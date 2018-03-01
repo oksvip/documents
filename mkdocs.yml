@@ -5,6 +5,13 @@ pages:
     - PHP笔记: 'php.md'
     - 官方文档: 'manual.md'
     - 链接: 'links/links.md'
+    - PHP规范:
+        - 'PSR-1 基础编码规范': 'psrs/psr-1-basic-coding.md'
+        - 'PSR-2 编码风格规范': 'psrs/psr-2-coding-style.md'
+        - 'PSR-3 日志接口规范': 'psrs/psr-3-log-interface.md'
+        - 'PSR-4 自动加载规范': 'psrs/psr-4-autoload.md'
+        - 'PSR-6 缓存接口规范': 'psrs/psr-6-cache-interface.md'
+        - 'PSR-7 消息接口规范': 'psrs/psr-7-message-interface.md'
     - 笔记:
         - 'Git': 'study/git.md'
         - 'JavaScript': 'study/javascript.md'
