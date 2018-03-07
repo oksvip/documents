@@ -19,8 +19,6 @@ pages:
         - 'Mysql': 'study/mysql.md'
         - 'Vim': 'study/vim.md'
         - 'Crontab': 'study/crontab.md'
-    - 框架:
-        - 'codeIgniter': 'frameworks/codeigniter.md'
     - 知识:
         - '如何学习PHP': 'study/learn-php.md'
         - '提问的智慧': 'study/ask-wisdom.md'
@@ -49,6 +47,7 @@ pages:
         - 'wampserver-php': 'install/wampserver.md'
         - 'All': 'install/all.md'
     - 学习:
+        - 'Laravel自动部署': 'laravel/envoy.md'
         - 'Laravel&ThinkPHP': 'study/laravel5-thinkphp5.md'
         - 'Laravel发送email': 'study/laravel-email.md'
         - 'ReadMe-Example': 'study/project-readme-example.md'
