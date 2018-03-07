@@ -4,7 +4,7 @@ pages:
     - 简介: 'index.md'
     - PHP笔记: 'php.md'
     - 官方文档: 'manual.md'
-    - 链接: 'links/links.md'
+    - 链接: 'links.md'
     - PHP规范:
         - 'PSR-1 基础编码规范': 'psrs/psr-1-basic-coding.md'
         - 'PSR-2 编码风格规范': 'psrs/psr-2-coding-style.md'
