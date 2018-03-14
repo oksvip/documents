@@ -18,6 +18,8 @@
 
 #### 10.[100个Laravel扩展包](https://laravel-china.org/topics/2530/the-highest-amount-of-downloads-of-the-100-laravel-extensions-recommended) （1天）
 
+#### 10.[Carbon组件](http://carbon.nesbot.com/docs/) （1天）
+
 #### 11.[Laravel源码分析](https://github.com/laravel/laravel)（20天）
 
 #### 11.[Laravel-admin后台框架做项目](http://laravel-admin.org/docs/#/zh/installation)（7天）
