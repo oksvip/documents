@@ -1,6 +1,6 @@
-#### 1.[PHP开发PSR规范](http://doc.iokvip.com/psrs/psr-1-basic-coding/)（5天）
+#### 1.[PHP开发PSR规范](http://doc.iokvip.com/psrs/psr-1-basic-coding/)（2小时）
 
-#### 2.[PHP之道](https://laravel-china.github.io/php-the-right-way/)（10天）
+#### 2.[PHP之道](https://laravel-china.github.io/php-the-right-way/)（2小时）
 
 #### 3.[PHP官方手册](http://php.net/manual/zh/)（20天）
 
@@ -19,6 +19,8 @@
 #### 10.[100个Laravel扩展包](https://laravel-china.org/topics/2530/the-highest-amount-of-downloads-of-the-100-laravel-extensions-recommended) （1天）
 
 #### 11.[Laravel源码分析](https://github.com/laravel/laravel)（20天）
+
+#### 11.[Laravel-admin后台框架做项目](http://laravel-admin.org/docs/#/zh/installation)（7天）
 
 #### 12.[开发自己的框架](https://github.com/laravel/laravel)（7天）
 
