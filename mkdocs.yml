@@ -26,7 +26,7 @@ pages:
         - 'php面试题目': 'study/review.md'
     - 软件:
         - 'Ubuntu-php-version': 'install/ubuntu.md'
-        - 'ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
+        - 'Ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
         - 'Ubuntu-lnmp': 'install/lnmp-shell.md'
         - 'Vim': 'install/vim.md'
         - 'Remote Link': 'install/remote.md'
@@ -44,7 +44,8 @@ pages:
         - 'Node': 'install/node.md'
         - 'FileZilla': 'install/filezilla.md'
         - 'Xdebug': 'install/xdebug.md'
-        - 'wampserver-php': 'install/wampserver.md'
+        - 'Wampserver-php': 'install/wampserver.md'
+        - 'Sublime-text': 'install/sublimetext.md'
         - 'All': 'install/all.md'
     - 学习:
         - 'Laravel技巧': 'laravel/laravel-skills.md'
