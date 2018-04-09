@@ -44,6 +44,51 @@ $ ./configure --prefix=/usr/local/php \
     --enable-xml \
     --enable-zip
 
+$ ./configure \
+        --prefix=/usr/local/php \
+        --with-apxs2=/usr/local/httpd/bin/apxs \
+        --with-config-file-path=/etc/php \
+        --with-config-file-scan-dir=/etc/php.d \
+        --with-libxml-dir=/usr \
+        --with-libdir=lib64 \
+        --with-curl \
+        --with-mysqli \
+        --with-openssl \
+        --with-pdo-mysql \
+        --with-pdo-sqlite \
+        --with-pcre-regex \
+        --with-pear \
+        --with-xmlrpc \
+        --with-gd \
+        --enable-gd-native-ttf \
+        --with-jpeg-dir \
+        --with-freetype-dir \
+        --with-png-dir \
+        --with-gettext \
+        --with-iconv-dir \
+        --with-kerberos \
+        --with-zlib \
+        --with-xsl \
+        --with-mcrypt \
+        --enable-inline-optimization \
+        --enable-mbregex \
+        --enable-mbstring \
+        --enable-libxml \
+        --enable-opcache \
+        --enable-pcntl \
+        --enable-xml \
+        --enable-mysqlnd \
+        --enable-fpm \
+        --enable-bcmath \
+        --enable-shmop \
+        --enable-soap \
+        --enable-sockets \
+        --enable-sysvsem \
+        --enable-zip \
+        --enable-mbstring \
+        --enable-maintainer-zts \
+        --enable-fileinfo
+
 $ make && make install
 ```
 
