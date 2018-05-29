@@ -148,7 +148,18 @@ error: unable to read askpass response from '/usr/libexec/openssh/gnome-ssh-askp
 # git remote rm origin
 ```
 
+##### 13、设置默认提交分支
+```tex
+$ git config --global push.default simple
+$ git push -set-upstream origin master
+```
 
+##### 14、记住密码
+```tex
+$ git config --global creditial.helper cache     // 默认15分钟
+$ git config credential.helper ‘cache –timeout=3600’    // 自己设置时间单位（秒）
+$ git config --global creditial.helper store     // 长期存储密码
+```
 
 #### 江小延：
 
