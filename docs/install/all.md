@@ -234,8 +234,8 @@ sunrise
 
 ```shell
 # cd ../httpd-2.4.25
-# ./configure --prefix=/usr/local/httpd --sysconfdir=/usr/local/httpd/conf --enable-so --enable-ssl --enable-cgi --enable-rewrite --with-zlib --with-pcre --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-modules=most --enable-mpms-shared=all --with-mpm=event
-# make && make install
+# ./configure --prefix=/usr/local/httpd --sysconfdir=/etc/httpd --enable-so --enable-ssl --enable-cgi --enable-rewrite --with-zlib --with-pcre --with-included-apr --enable-modules=most --enable-mpms-shared=all --with-mpm=event
+# make -j 4 && make install
 ```
 
 ##### 4）备份httpd.conf
@@ -259,10 +259,10 @@ DocumentRoot "/www"
 DirectoryIndex index.php index.html
 
 加载ttf字体
-AddType application/font-sfnt            .otf .ttf
-AddType application/font-woff            .woff
-AddType application/font-woff2           .woff2
-AddType application/vnd.ms-fontobject    .eot
+AddType application/font-sfnt .otf .ttf
+AddType application/font-woff .woff
+AddType application/font-woff2 .woff2
+AddType application/vnd.ms-fontobject .eot
 
 加载rewrite
 
@@ -273,130 +273,14 @@ AddType application/x-httpd-php .php
 ##### 6）提供SysV服务脚本/etc/rc.d/init.d/httpd
 
 ```shell
+$ cp /usr/local/httpd/bin/apachectl /etc/init.d/httpd
+
 #!/bin/bash  
 #  
 # httpd        Startup script for the Apache HTTP Server  
 #  
-# chkconfig: - 85 15  
+# chkconfig: 2345 85 15  
 # description: The Apache HTTP Server is an efficient and extensible  \  
-#          server implementing the current HTTP standards.  
-# processname: httpd  
-# config: /usr/local/httpd/conf/httpd.conf  
-# config: /etc/sysconfig/httpd  
-# pidfile: /var/run/httpd/httpd.pid  
-#  
-### BEGIN INIT INFO  
-# Provides: httpd  
-# Required-Start: $local_fs $remote_fs $network $named  
-# Required-Stop: $local_fs $remote_fs $network  
-# Should-Start: distcache  
-# Short-Description: start and stop Apache HTTP Server  
-# Description: The Apache HTTP Server is an extensible server   
-#  implementing the current HTTP standards.  
-### END INIT INFO  
-  
-# Source function library.  
-. /etc/rc.d/init.d/functions  
-  
-if [ -f /etc/sysconfig/httpd ]; then  
-        . /etc/sysconfig/httpd  
-fi  
-  
-# Start httpd in the C locale by default.  
-HTTPD_LANG=${HTTPD_LANG-"C"}  
-  
-# This will prevent initlog from swallowing up a pass-phrase prompt if  
-# mod_ssl needs a pass-phrase from the user.  
-INITLOG_ARGS=""  
-  
-# Set HTTPD=/usr/sbin/httpd.worker in /etc/sysconfig/httpd to use a server  
-# with the thread-based "worker" MPM; BE WARNED that some modules may not  
-# work correctly with a thread-based MPM; notably PHP will refuse to start.  
-  
-# Path to the apachectl script, server binary, and short-form for messages.  
-apachectl=/usr/local/httpd/bin/apachectl  
-httpd=${HTTPD-/usr/local/httpd/bin/httpd}  
-prog=httpd  
-pidfile=${PIDFILE-/usr/local/httpd/logs/httpd.pid}  
-lockfile=${LOCKFILE-/var/lock/subsys/httpd}  
-RETVAL=0  
-STOP_TIMEOUT=${STOP_TIMEOUT-10}  
-  
-# The semantics of these two functions differ from the way apachectl does  
-# things -- attempting to start while running is a failure, and shutdown  
-# when not running is also a failure.  So we just do it the way init scripts  
-# are expected to behave here.  
-start() {  
-        echo -n $"Starting $prog: "  
-        LANG=$HTTPD_LANG daemon --pidfile=${pidfile} $httpd $OPTIONS  
-        RETVAL=$?  
-        echo  
-        [ $RETVAL = 0 ] && touch ${lockfile}  
-        return $RETVAL  
-}  
-  
-# When stopping httpd, a delay (of default 10 second) is required  
-# before SIGKILLing the httpd parent; this gives enough time for the  
-# httpd parent to SIGKILL any errant children.  
-stop() {  
-    echo -n $"Stopping $prog: "  
-    killproc -p ${pidfile} -d ${STOP_TIMEOUT} $httpd  
-    RETVAL=$?  
-    echo  
-    [ $RETVAL = 0 ] && rm -f ${lockfile} ${pidfile}  
-}  
-reload() {  
-    echo -n $"Reloading $prog: "  
-    if ! LANG=$HTTPD_LANG $httpd $OPTIONS -t >&/dev/null; then  
-        RETVAL=6  
-        echo $"not reloading due to configuration syntax error"  
-        failure $"not reloading $httpd due to configuration syntax error"  
-    else  
-        # Force LSB behaviour from killproc  
-        LSB=1 killproc -p ${pidfile} $httpd -HUP  
-        RETVAL=$?  
-        if [ $RETVAL -eq 7 ]; then  
-            failure $"httpd shutdown"  
-        fi  
-    fi  
-    echo  
-}  
-  
-# See how we were called.  
-case "$1" in  
-  start)  
-    start  
-    ;;  
-  stop)  
-    stop  
-    ;;  
-  status)  
-        status -p ${pidfile} $httpd  
-    RETVAL=$?  
-    ;;  
-  restart)  
-    stop  
-    start  
-    ;;  
-  condrestart|try-restart)  
-    if status -p ${pidfile} $httpd >&/dev/null; then  
-        stop  
-        start  
-    fi  
-    ;;  
-  force-reload|reload)  
-        reload  
-    ;;  
-  graceful|help|configtest|fullstatus)  
-    $apachectl $@  
-    RETVAL=$?  
-    ;;  
-  *)  
-    echo $"Usage: $prog {start|stop|restart|condrestart|try-restart|force-reload|reload|status|fullstatus|graceful|help|configtest}"  
-    RETVAL=2  
-esac  
-  
-exit $RETVAL
 ```
 
 ##### 7）为此脚本赋予执行权限：
@@ -540,43 +424,49 @@ sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_
 Orgin:
 # ./configure --prefix=/usr/local/php --with-libxml-dir=/usr/include/libxml2 --with-mysqli --with-zlib-dir=/usr/src/kernels/2.6.32-431.el6.i686/include/config/zlib --with-apxs2=/usr/local/httpd/bin/apxs --with-config-file-path=/usr/local/php
 
-New:
-./configure --prefix=/usr/local/php \
+./configure \
+    --prefix=/usr/local/php \
     --with-apxs2=/usr/local/httpd/bin/apxs \
-    --with-config-file-path=/usr/local/php \
+    --with-config-file-path=/etc/php \
+    --with-config-file-scan-dir=/etc/php.d \
+    --with-libxml-dir=/usr \
+    --with-libdir=lib64 \
     --with-curl \
-    --with-freetype-dir \
+    --with-mysqli \
+    --with-openssl \
+    --with-pdo-mysql \
+    --with-pdo-sqlite \
+    --with-pcre-regex \
+    --with-pear \
+    --with-xmlrpc \
     --with-gd \
+    --enable-gd-native-ttf \
+    --with-jpeg-dir \
+    --with-freetype-dir \
+    --with-png-dir \
     --with-gettext \
     --with-iconv-dir \
     --with-kerberos \
-    --with-libdir=lib64 \
-    --with-libxml-dir \
-    --with-mysqli \
-    --with-openssl\
-    --with-pcre-regex \
-    --with-pdo-mysql \
-    --with-pdo-sqlite \
-    --with-pear \
-    --with-png-dir \
-    --with-xmlrpc \
-    --with-xsl \
     --with-zlib \
-    --enable-fpm \
-    --enable-bcmath \
-    --enable-libxml \
+    --with-xsl \
     --enable-inline-optimization \
-    --enable-gd-native-ttf \
     --enable-mbregex \
     --enable-mbstring \
+    --enable-libxml \
     --enable-opcache \
     --enable-pcntl \
+    --enable-xml \
+    --enable-mysqlnd \
+    --enable-fpm \
+    --enable-bcmath \
     --enable-shmop \
     --enable-soap \
     --enable-sockets \
     --enable-sysvsem \
-    --enable-xml \
-    --enable-zip
+    --enable-zip \
+    --enable-mbstring \
+    --enable-maintainer-zts \
+    --enable-fileinfo 
 
 # make && make install
 # cp /usr/local/soft/php-7.1.1/php.ini-development /usr/local/php/php.ini

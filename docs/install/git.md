@@ -18,8 +18,7 @@ $ tar -xzvf git-2.1.2.tar.gz
 $ cd git-2.1.2
 $ make prefix=/usr/local/git all
 $ make prefix=/usr/local/git install
-$ echo "export PATH=$PATH:/usr/local/git/bin" >> /etc/bashrc
-$ source /etc/bashrc
+$ ln -sf /usr/local/git/bin/git /usr/local/bin
 ```
 
 ##### 4）查看版本号

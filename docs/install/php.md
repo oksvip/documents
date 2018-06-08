@@ -7,42 +7,6 @@
 ```shell
 $ tar xf php-7.1.9.tar.gz
 $ cd php-7.1.9
-$ ./configure --prefix=/usr/local/php \
-    --with-apxs2=/usr/local/httpd/bin/apxs \
-    --with-config-file-path=/usr/local/php \
-    --with-curl \
-    --with-freetype-dir \
-    --with-gd \
-    --with-gettext \
-    --with-iconv-dir \
-    --with-kerberos \
-    --with-libdir=lib64 \
-    --with-libxml-dir \
-    --with-mysqli \
-    --with-openssl\
-    --with-pcre-regex \
-    --with-pdo-mysql \
-    --with-pdo-sqlite \
-    --with-pear \
-    --with-png-dir \
-    --with-xmlrpc \
-    --with-xsl \
-    --with-zlib \
-    --enable-fpm \
-    --enable-bcmath \
-    --enable-libxml \
-    --enable-inline-optimization \
-    --enable-gd-native-ttf \
-    --enable-mbregex \
-    --enable-mbstring \
-    --enable-opcache \
-    --enable-pcntl \
-    --enable-shmop \
-    --enable-soap \
-    --enable-sockets \
-    --enable-sysvsem \
-    --enable-xml \
-    --enable-zip
 
 $ ./configure \
         --prefix=/usr/local/php \
@@ -69,7 +33,6 @@ $ ./configure \
         --with-kerberos \
         --with-zlib \
         --with-xsl \
-        --with-mcrypt \
         --enable-inline-optimization \
         --enable-mbregex \
         --enable-mbstring \

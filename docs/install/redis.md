@@ -37,18 +37,18 @@ $ 创建配置文件目录，dump file 目录，进程pid目录，log目录等
 $ cd /usr/local/
 $ mkdir redis
 $ cd redis
-$ mkdir conf data log run
-$ cp /usr/local/soft/redis/redis.conf /usr/local/redis/conf/redis_6379.conf
-$ cd /usr/local/redis/conf
-$ cp redis_6379.conf redis_6379.conf.bak
+$ mkdir log run
+$ cp ~/lamp/redis-4.0.9/redis.conf /etc/redis/redis.conf
+$ cd /etc/redis
+$ cp redis.conf redis.conf.bak
 ```
 
 ##### 修改Redis配置
 
 ```shell
-$ vi redis_6379.conf
+$ vi redis.conf
 pidfile /usr/local/redis/run/redis_6379.pid
-dir /usr/local/redis/data
+dir /data/redis
 logfile /usr/local/redis/log/redis.log
 daemonize no改为yes					# 修改配置文件使得redis在background运行
 ```
@@ -56,7 +56,7 @@ daemonize no改为yes					# 修改配置文件使得redis在background运行
 ##### 启动redis，查看各目录下文件
 
 ```shell
-$ redis-server /usr/local/redis/conf/redis_6379.conf
+$ redis-server /etc/redis/redis.conf
 ```
 
 ##### 客户端连接redis
@@ -68,6 +68,9 @@ $ redis-cli
 ##### 服务及开机自启动
 
 ```shell
+$ cp /usr/local/soft/redis/utils/redis_init_script /etc/rc.d/init.d/redis
+$ vi /etc/rc.d/init.d/redis
+
 # 给reids服务设置优先级（在开始位置添加）
 #!/bin/sh
 #
@@ -77,12 +80,8 @@ $ redis-cli
 # description: Redis is a persistent key-value database
 # added by wt on 20170312
 
-
-$ cp /usr/local/soft/redis/utils/redis_init_script /etc/init.d/redis
-$ cd /etc/init.d
-$ vi /etc/init.d/redis
 PIDFILE=/usr/local/redis/run/redis_${REDISPORT}.pid
-CONF="/usr/local/redis/conf/redis_${REDISPORT}.conf"
+CONF="/etc/redis/redis.conf"
 
 $ chmod +x /etc/init.d/redis	# 给启动脚本添加权限
 $ chkconfig redis on			# 添加开机启动服务
