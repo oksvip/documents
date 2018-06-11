@@ -22,6 +22,7 @@ pages:
         - 'MarkDown': 'study/markdown.md'
     - 笔记:
         - 'Vagrant': 'vagrant.md'
+        - 'Lnmp': 'install/lnmp.md'
         - 'Git': 'study/git.md'
         - 'JavaScript': 'study/javascript.md'
         - 'Mysql': 'study/mysql.md'
