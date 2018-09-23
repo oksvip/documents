@@ -38,6 +38,8 @@ pages:
         - 'Ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
         - 'Ubuntu-lnmp': 'install/lnmp-shell.md'
         - 'Vim': 'install/vim.md'
+        - 'Docker': 'install/docker.md'
+        - 'Shadowsocks': 'install/shadowsocks.md'
         - 'Remote Link': 'install/remote.md'
         - 'Vsftpd': 'install/vsftpd.md'
         - 'Apache': 'install/httpd.md'
