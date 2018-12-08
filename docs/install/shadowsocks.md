@@ -21,11 +21,11 @@ $ sudo vi /etc/shadowsocks/shadowsocks.json
 ### 添加配置信息：前提是需要有ss服务器的地址、端口等信息
 ```tex
 {
-    "server":"45.77.221.219",
+    "server":"xxx.xxx.xxx.xxx",
     "server_port":2018,
     "local_address": "127.0.0.1",
     "local_port":1080,
-    "password":"wangtao19930817",
+    "password":"***********",
     "timeout":300,
     "method":"aes-256-cfb",
     "fast_open": false,
