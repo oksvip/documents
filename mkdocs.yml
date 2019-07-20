@@ -7,6 +7,7 @@ pages:
     - 官方文档: 'manual.md'
     - 链接: 'links.md'
     - Centos防火墙: 'firewalld.md'
+    - Node-Sass: 'install/node-sass.md'
     - PHP规范:
         - 'PSR-1 基础编码规范': 'psrs/psr-1-basic-coding.md'
         - 'PSR-2 编码风格规范': 'psrs/psr-2-coding-style.md'
@@ -33,6 +34,8 @@ pages:
         - '提问的智慧': 'study/ask-wisdom.md'
         - '快速学习Laravel': 'study/learn-laravel.md'
         - 'php面试题目': 'study/review.md'
+    - 框架:
+        - 'symfony': 'study/symfony.md'
     - 软件:
         - 'Ubuntu-php-version': 'install/ubuntu.md'
         - 'Ubuntu-mutiply-php-version': 'install/ubuntu-mutiply-php-version.md'
