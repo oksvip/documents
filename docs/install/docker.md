@@ -98,3 +98,21 @@ networks:
 ```shell
 $ docker-compose up -d nginx mysql
 ```
+
+### 设置网站只能指定ip访问
+
+```shell
+
+$ vim /www/laradock/nginx/sites/license.conf
+
+allow xxx.xxx.xxx.xxx; # company computer
+deny all;
+
+
+$ vim /www/laradock/nginx/sites/site.com.conf
+
+server {
+	allow xxx.xxx.xxx.xxx; 允许特定ip访问
+	allow all; # 设置此网站全部可访问
+}
+```
