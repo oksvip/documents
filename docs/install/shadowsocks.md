@@ -1,4 +1,4 @@
-# 安装Shadowsocks客户端
+# 一、安装Shadowsocks客户端
 
 ### 安装epel源、安装pip包管理
 ```shell
@@ -122,4 +122,27 @@ Proxy-Connection: keep-alive
 ### 取消使用代理
 ```shell
 while read var; do unset $var; done < <(env | grep -i proxy | awk -F= '{print $1}')
+```
+
+
+# 二、一键安装SSR脚本
+
+
+### 下载一键安装包
+```shell
+$ wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh && chmod +x shadowsocksR.sh && ./shadowsocksR.sh 2>&1 | tee shadowsocksR.log
+```
+
+### 加密方式选择aes-256-cfb
+
+
+### 开启BBR加速
+
+```shell
+$ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+```
+
+### 重启后查看是否启动了BBR
+```shell
+$ lsmod | grep bbr
 ```
