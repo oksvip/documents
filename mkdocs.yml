@@ -26,6 +26,7 @@ pages:
         - 'Git': 'study/git.md'
         - 'JavaScript': 'study/javascript.md'
         - 'Mysql': 'study/mysql.md'
+        - 'MysqlPractice': 'study/mysql-practice-45.md'
         - 'Vim': 'study/vim.md'
         - 'Crontab': 'study/crontab.md'
     - 知识:
