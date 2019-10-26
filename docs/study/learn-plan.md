@@ -1,3 +1,20 @@
+#### 1.VUE SPA应用
+#### 2.如何解决laravel中循环依赖问题
+#### 3.Laravel如何将vue切换成react并使用
+#### 4.如何考虑并解决并发问题
+#### 5.成功搭建一次负载均衡服务器
+#### 6.完成一次秒杀队列功能实现
+#### 7.laravel实现第三方登录（QQ/Wetchat/Alipay/Github/Google）
+#### 8.laravel实现一次第三方支付（QQ/Wechat/Alipay）
+#### 9.理解代码分层开发
+#### 10.docker如何使用jenkins自动部署
+
+
+
+
+
+
+
 #### 1.[PHP开发PSR规范](http://doc.iokvip.com/psrs/psr-1-basic-coding/)（2小时）
 
 #### 2.[PHP之道](https://laravel-china.github.io/php-the-right-way/)（2小时）
