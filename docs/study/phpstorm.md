@@ -55,6 +55,8 @@ CTRL+P   方法参数提示，显示默认参数
 CTRL+J   自动代码提示，自动补全
 CTRL+ALT+T  把选中的代码放在 TRY{} IF{} ELSE{} 里
 ALT+INSERT  生成代码(如GET,SET方法,构造函数等)
+CTRL+T	拉取git代码
+CTRL+SHIFT+K 推送git代码
 ```
 
 ## 复制快捷方式
