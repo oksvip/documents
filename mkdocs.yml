@@ -44,6 +44,7 @@ pages:
         - 'Vim': 'linux/vim.md'
         - 'Docker': 'linux/docker.md'
         - 'Shadowsocks': 'linux/shadowsocks.md'
+        - 'V2ray': 'linux/v2ray.md'
         - 'Remote Link': 'linux/remote.md'
         - 'Vsftpd': 'linux/vsftpd.md'
         - 'Apache': 'linux/httpd.md'
