@@ -84,3 +84,23 @@ $ ./configure --prefix=/usr/local/php/7.2 --with-config-file-path=/etc/php/7.2 -
 ```shell
 $ make -j4 && make install
 ```
+
+##### 复制配置文件
+
+```shell
+$ cp ~/src/php7.2.25/php.production /etc/php/7.2/php.ini
+```
+
+##### 配置环境变量
+
+```shell
+$ export PATH=$PATH:/usr/local/php/7.2/bin
+$ export PATH=$PATH:/usr/local/php/7.2/sbin
+```
+
+##### 关闭/开启php-fpm
+
+```shell
+$ pkill php-fpm  # 关闭
+$ php-fpm        # 开启
+```
