@@ -51,6 +51,7 @@ pages:
         - 'Remote Link': 'linux/remote.md'
         - 'Vsftpd': 'linux/vsftpd.md'
         - 'Apache': 'linux/httpd.md'
+        - 'Mariadb': 'linux/mariadb.md'
         - 'Mysql': 'linux/mysql.md'
         - 'Php': 'linux/php.md'
         - 'Git': 'linux/git.md'
