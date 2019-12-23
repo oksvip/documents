@@ -39,11 +39,8 @@ pages:
     - 框架:
         - 'symfony': 'symfony/symfony.md'
     - 软件:
-        - 'Ubuntu源码编译nginx和php': 'linux/ubuntu-source-make-lnmp.md'
-        - '（新）Ubuntu源码编译nginx和php': 'linux/ubuntu-nginx.md'
-        - 'Ubuntu-php-version': 'linux/ubuntu.md'
-        - 'Ubuntu-mutiply-php-version': 'linux/ubuntu-mutiply-php-version.md'
-        - 'Ubuntu-lnmp': 'linux/lnmp-shell.md'
+        - 'Linux源码编译lnmp(Centos7和Ubuntu16)': 'linux/linux-source-make-lnmp.md'
+        - 'Ubuntu16.04安装php多版本lamp': 'linux/ubuntu-apt-install-lamp.md'
         - 'Vim': 'linux/vim.md'
         - 'Linux Docker': 'linux/docker.md'
         - 'Windows Docker': 'windows/docker.md'
