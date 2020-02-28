@@ -19,10 +19,10 @@ $ yum install tcl
 ```shell
 $ tar -xzvf redis-4.0-rc3.tar.gz
 $ cd redis-4.0-rc3
-$ make && make install
+$ make && make PREFIX=/usr/local/redis install #安装到指定目录中
 ```
 
-##### 成功后/usr/local/bin下已有这些文件
+##### 成功后/usr/local/redis/bin下已有这些文件
 
 ```shell
 redis-benchmark  redis-check-rdb  redis-sentinel
@@ -34,10 +34,8 @@ $ redis-server –v (查看版本命令)
 
 ```shell
 $ 创建配置文件目录，dump file 目录，进程pid目录，log目录等
-$ cd /usr/local/
-$ mkdir redis
-$ cd redis
-$ mkdir log run
+$ cd /usr/local/redis
+$ mkdir /etc/redis
 $ cp ~/lamp/redis-4.0.9/redis.conf /etc/redis/redis.conf
 $ cd /etc/redis
 $ cp redis.conf redis.conf.bak
@@ -46,11 +44,12 @@ $ cp redis.conf redis.conf.bak
 ##### 修改Redis配置
 
 ```shell
-$ vi redis.conf
-pidfile /usr/local/redis/run/redis_6379.pid
+$ vim redis.conf
 dir /data/redis
-logfile /usr/local/redis/log/redis.log
+logfile /var/log/redis.log
 daemonize no改为yes					# 修改配置文件使得redis在background运行
+maxmemory maxmemory 2147483648      # 2G，根据服务器配制适当填写
+requirepass password                # 设置redis连接密码
 ```
 
 ##### 启动redis，查看各目录下文件
@@ -59,39 +58,49 @@ daemonize no改为yes					# 修改配置文件使得redis在background运行
 $ redis-server /etc/redis/redis.conf
 ```
 
+##### 创建服务
+```shell
+$ vim /lib/systemd/system/redisd.service
+
+# --------------------------------------------------------------------------
+# 输入以下代码并保存
+# --------------------------------------------------------------------------
+[Unit]
+Description=The redis-server Process Manager
+After=syslog.target network.target
+[Service]
+Type=forking
+PIDFile=/var/run/redis_6379.pid
+ExecStart=/usr/local/redis/bin/redis-server /etc/redis/redis.conf         
+ExecReload=/bin/kill -USR2 $MAINPID
+ExecStop=/bin/kill -SIGINT $MAINPID
+[Install]
+WantedBy=multi-user.target
+```
+
+##### 启停服务
+```shell
+# 开机启动
+[redis-5.0.5] systemctl enable redis.service
+
+# 启动服务
+[redis-5.0.5] systemctl start redisd.service
+
+# 停止服务
+[redis-5.0.5] systemctl stop redisd.service
+
+# 重启服务
+[redis-5.0.5] systemctl restart redisd.service
+
+# 强杀进程
+[redis-5.0.5] pkill -9 redis
+
+```
+
 ##### 客户端连接redis
 
 ```shell
 $ redis-cli
-```
-
-##### 服务及开机自启动
-
-```shell
-$ cp /usr/local/soft/redis/utils/redis_init_script /etc/rc.d/init.d/redis
-$ vi /etc/rc.d/init.d/redis
-
-# 给reids服务设置优先级（在开始位置添加）
-#!/bin/sh
-#
-# added by wt on 20170312
-# chkconfig: 2345 90 10
-#
-# description: Redis is a persistent key-value database
-# added by wt on 20170312
-
-PIDFILE=/usr/local/redis/run/redis_${REDISPORT}.pid
-CONF="/etc/redis/redis.conf"
-
-$ chmod +x /etc/init.d/redis	# 给启动脚本添加权限
-$ chkconfig redis on			# 添加开机启动服务
-```
-
-##### 启动、关闭redis
-
-```shell
-$ service redis start
-$ service redis stop
 ```
 
 ##### 安装php拓展
