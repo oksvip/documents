@@ -60,7 +60,7 @@ $ redis-server /etc/redis/redis.conf
 
 ##### 创建服务
 ```shell
-$ vim /lib/systemd/system/redisd.service
+$ vim /lib/systemd/system/redis.service
 
 # --------------------------------------------------------------------------
 # 输入以下代码并保存
@@ -84,13 +84,13 @@ WantedBy=multi-user.target
 [redis-5.0.5] systemctl enable redis.service
 
 # 启动服务
-[redis-5.0.5] systemctl start redisd.service
+[redis-5.0.5] systemctl start redis.service
 
 # 停止服务
-[redis-5.0.5] systemctl stop redisd.service
+[redis-5.0.5] systemctl stop redis.service
 
 # 重启服务
-[redis-5.0.5] systemctl restart redisd.service
+[redis-5.0.5] systemctl restart redis.service
 
 # 强杀进程
 [redis-5.0.5] pkill -9 redis
