@@ -97,6 +97,14 @@ WantedBy=multi-user.target
 
 ```
 
+##### Windows安装redis服务
+
+```shell
+$ redis-server --service-install redis.windows.conf --loglevel verbose  // 注册redis服务
+$ redis-server --service-start // 开启服务
+$ redis-server --service-stop  // 关闭服务
+```
+
 ##### 客户端连接redis
 
 ```shell
