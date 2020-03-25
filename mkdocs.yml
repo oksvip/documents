@@ -1,7 +1,12 @@
 site_name: 开发笔记
-theme: readthedocs
-pages:
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - shell
+nav:
     - 简介: 'index.md'
+    - 清除系统大文件: 'linux/system-clean.md'
     - phpstorm快捷键: 'study/phpstorm.md'
     - jetbrains: 'windows/jetbrains.md'
     - 2018学习计划: 'study/learn-plan.md'
