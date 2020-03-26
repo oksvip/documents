@@ -1,3 +1,37 @@
+# 2020学习计划
+
+### 语言系列
+
+- Php
+- Python
+- Go
+- Rust
+
+### 数据库系列
+
+- Mysql
+- Redis
+- Memcache
+- Mongodb
+
+### 前端系列
+
+- Vue
+- Wetchat Mini App
+
+### 前端库系列
+
+- Boostrap
+- jQuery
+
+### 架构系列
+
+- 负载均衡
+- Mysql主从复制
+- Redis队列
+- 高可用架构
+- 思考如何解决并发问题
+
 #### 1.VUE SPA应用
 #### 2.如何解决laravel中循环依赖问题
 #### 3.Laravel如何将vue切换成react并使用
@@ -11,6 +45,8 @@
 #### 11.多台服务器集群部署方案
 #### 12.git自动拉取代码部署
 #### 13.k8s
+
+
 
 
 
