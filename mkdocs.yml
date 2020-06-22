@@ -1,4 +1,5 @@
-site_name: 开发笔记
+site_name: 腾热网
+copyright: &copyright 2018-2020
 theme:
     name: readthedocs
     highlightjs: true
@@ -6,6 +7,7 @@ theme:
         - shell
 nav:
     - 简介: 'index.md'
+    - GO: 'study/go.md'
     - 清除系统大文件: 'linux/system-clean.md'
     - phpstorm快捷键: 'study/phpstorm.md'
     - jetbrains: 'windows/jetbrains.md'

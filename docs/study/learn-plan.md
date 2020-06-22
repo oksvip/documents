@@ -1,11 +1,16 @@
 # 2020学习计划
 
-### 语言系列
+### 语言系列（长期）
 
 - Php
-- Python
-- Go
-- Rust
+- [Python](https://learnku.com/python)
+- [Java](https://how2j.cn/)
+- [Go](https://learnku.com/docs/the-way-to-go)
+- [Rust](https://learnku.com/rust)
+- [汇编语言-小甲鱼](https://www.bilibili.com/video/av28132657/)
+- [汇编语言-王爽](https://www.bilibili.com/video/BV1mt411R7Xv?p=325)
+- [C语言](https://www.bilibili.com/video/BV17s411N78s?p=1)
+- 数据结构与算法
 
 ### 数据库系列
 
@@ -31,6 +36,7 @@
 - Redis队列
 - 高可用架构
 - 思考如何解决并发问题
+- memcache做页面静态化
 
 #### 1.VUE SPA应用
 #### 2.如何解决laravel中循环依赖问题
