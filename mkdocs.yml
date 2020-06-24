@@ -1,5 +1,11 @@
 site_name: 腾热网
-copyright: &copyright 2018-2020
+site_description: 一个呆呆程序员的技术博客！
+site_author: 日出
+site_favicon: favicon.ico
+site_url: https://www.tengre.cn
+repo_name: GitHub
+repo_url: https://github.com/oksvip/documents
+copyright: &copyright 2018-2020 <script type="text/javascript" src="https://s22.cnzz.com/z_stat.php?id=1262240146&web_id=1262240146"></script>
 theme:
     name: readthedocs
     highlightjs: true
