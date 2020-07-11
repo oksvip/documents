@@ -12,6 +12,10 @@
 - [C语言](https://www.bilibili.com/video/BV17s411N78s?p=1)
 - 数据结构与算法
 
+### 设计模式
+
+- [PHP 设计模式全集](https://learnku.com/docs/php-design-patterns/2018)
+
 ### 数据库系列
 
 - Mysql
